@@ -1,0 +1,95 @@
+.brand{
+  &__banner{
+    @include banner('../src/assets/images/brand_banner.jpg',700px);
+    opacity: 0.9;
+    position: relative;
+    @include pad{
+      height: 600px;
+    }
+    @include mobile{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__intro{
+    position: absolute;
+    top: 30%;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    @include pad{
+      font-size: 26px;
+    }
+    @include mobile{
+      font-size: 22px;
+      background-color: rgba(0, 0, 0, 0.692);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    @include iphone6s{
+      font-size: 20px;  
+    }
+  }
+  &__about{
+    @include banner('../src/assets/images/brand_about.jpg',400px);
+    @include mobile{
+      display:none;
+    }
+  }
+  &__title{
+    border-bottom: 4px solid rgba(204, 100, 31, 0.945);
+    margin-bottom: 10px;
+  }
+  &__content{
+    border: 2px solid #000;
+    border-radius: 5px;
+    @include iphone6s{
+      font-size: 14px;
+    }
+  }
+  &__fire{
+    @include banner('../src/assets/images/brand_fire.jpg',400px);
+    @include mobile{
+      display:none;
+    }
+  }
+  &__car{
+    @include banner('../src/assets/images/brand_car.jpg',400px);
+    background-attachment: fixed;
+    position:relative;
+  }
+  &__reservation{
+    position:absolute;
+    width: 50%;
+    background-color: rgba(143, 143, 143, 0.842);
+    border-radius: 5px;
+    font-weight: bold;
+    @include mobile{
+      width: 80%;
+    }
+    @include iphone6{
+      h3{
+        font-size: 18px;
+      }
+      width: 90%;
+      font-size: 14px;
+    }
+  }
+  &__map{
+    position: relative;
+    @include iphone6s{
+      height: 300px ;
+    }
+  }
+  &__time{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.877);
+    @include pad{
+      display: none !important;
+    }
+  }
+}

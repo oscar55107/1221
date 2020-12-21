@@ -1,0 +1,277 @@
+.noGutter__row{
+  margin: 0;
+}
+.noGutter__col{
+  padding: 0;
+}
+// header 
+.header{
+  &__bg{
+    @include banner('../src/assets/images/banner.jpg',700px);
+    background-attachment: fixed;
+    position:relative;
+    @include pad{
+      height: 600px;
+    }
+  }
+  &__intro{
+    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.808);
+    font-weight: bold;
+    letter-spacing: 5px;
+    border-radius: 5px;
+  }   
+  &__text{
+    @include mobile{
+      font-size: 1.4rem;
+    }
+    @include iphone5{
+      font-size: 1rem;
+    }
+  }
+}
+.header{
+  &__btn{
+    a span{
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      width: 30px;
+      height: 50px;
+      margin-left: -15px;
+      border: 2px solid #fff;
+      border-radius: 50px;
+      box-sizing: border-box;
+    }
+  }
+}
+.header{
+  &__btn{
+    a span{
+      &::before{
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        content: '';
+        width: 6px;
+        height: 6px;
+        margin-left: -3px;
+        background-color: #fff;
+        border-radius: 100%;
+        animation: mouse 2s infinite;
+        box-sizing: border-box;
+      }
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+@keyframes mouse {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+// section
+.section{
+  &__intro{
+    @include banner('../src/assets/images/section__intro.jpg',400px);
+    @include mobile{
+      margin-top: 25px;
+    }
+    @include iphone6s{
+      height: 250px;
+    }
+  }
+  &__tent{
+    @include banner('../src/assets/images/section_tent.jpg',600px);
+    background-attachment: fixed;
+    @include mobile{
+      height: 300px;
+      background-attachment: local;
+    }
+    @include mobile{
+      position: relative;
+    }
+    &__description{
+      @include mobile{
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.897);
+        height: 200px;
+        width: 80%;
+        bottom: -50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        right: 25px;
+      }
+      @include iphone6s{
+        height: 150px;
+      }
+    }
+  }
+  &__chair{
+    background-attachment: fixed;
+    @include banner('../src/assets/images/section_chair.jpg',600px);
+    @include mobile{
+      height: 300px;
+      background-attachment: local;
+    }
+    @include mobile{
+      position: relative;
+    }
+    &__description{
+      @include mobile{
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.897);
+        height: 200px;
+        width: 80%;
+        top: 150px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        right: 25px;
+      }
+      @include iphone6s{
+        top: 200px;
+        height: 150px;
+      }
+    }
+  }
+  &__bg{
+    background-color: #f0f0f0;
+  }
+  &__title{
+    @include pad{
+      font-size: 22px;
+    }
+    @include mobile{
+      font-size: 20px;
+    }
+    @include iphone5{
+      font-size: 18px;
+    }
+  }
+  &__text{
+    @include pad{
+      font-size: 15px;
+    }
+    @include mobile{
+      display: none;
+    }
+  }
+}
+.intro{
+  &__title{
+    @include pad{
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  &__text{
+    @include pad{
+      font-size: 14px;
+    }
+  }
+}
+
+.hot{
+  &__text{
+    text-align: center;
+    background: #000;
+    position: absolute;
+    transition: all 0.5s;
+    width: 100%;
+    line-height: 250px;
+    font-size: 20px;
+    bottom:-250px;
+    opacity:0.6;
+  }
+  &__grill{
+    @include banner('../src/assets/images/hot_grill.jpg',250px);
+  }
+  &__tool{
+    @include banner('../src/assets/images/hot_tool.jpg',250px);
+  }
+  &__bag{
+    @include banner('../src/assets/images/hot__backpack.jpg',250px);
+  }
+  &__pot{
+    @include banner('../src/assets/images/hot__pot.jpg',250px);
+  }
+  &__light{
+    @include banner('../src/assets/images/hot_light.jpg',250px);
+  }
+  &__item{
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+.hot__item:hover{
+  cursor: pointer;
+}
+.hot__item:hover .hot__text{
+  bottom: 0;
+}
+.hot__item a{
+  text-decoration:none !important;
+}
+.more{
+  font-weight: bold;
+  padding: 15px;
+  border: 2px solid #fff;
+  &:hover{
+    background-color: rgb(68, 68, 68);
+    opacity: 1;
+  }
+}
+.gotop{
+  position: fixed;
+  bottom: 150px;
+  right: 37px;
+  height: 30px;
+  width: 30px;
+  color:#37523d;
+  cursor: pointer;
+  transition: all .3s ease;
+  opacity: 0.5;
+  font-size: 30px;
+  animation: sdb06 3s infinite;
+  @include mobile{
+    display: none ;
+  }
+  &:hover{
+    opacity: 1;
+  }
+}
+@keyframes sdb06 {
+  0% {
+    transform:  translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform:  translate(0, 0);
+    opacity: 0;
+  }
+}
+.footer{
+  background-color: #bebebe;
+}
