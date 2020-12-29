@@ -83,16 +83,20 @@
         <h2 class="text-center text-primary my-6 hotItem" v-if ="cart.carts.length === 0">本月熱銷商品</h2>
         <div class="row" v-if ="cart.carts.length === 0">
             <div class="col">
-              <swiper class="swiper" :options="swiperOption">
-                <swiper-slide v-for="(item) in products" :key="item.id">
-                  <div class="card" style="width: 18rem;" @click="toProduct">
-                    <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ item.title }}</h5>
-                    </div>
-                  </div>
-                </swiper-slide>
-              </swiper>
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <swiper class="swiper" :options="swiperOption">
+                    <swiper-slide v-for="(item) in products" :key="item.id">
+                      <div class="card h-100" @click="toProduct" h-100>
+                        <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
+                        <div class="card-body">
+                          <h5 class="card-title hotItem__text text-center">{{ item.title }}</h5>
+                        </div>
+                      </div>
+                    </swiper-slide>
+                  </swiper>
+                </div>
+              </div>
             </div>
           </div>
       </div>
@@ -114,13 +118,19 @@ export default {
       coupon_code: '',
       products: [],
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         loop: true,
         spaceBetween: 30,
         grabCursor: true,
         autoplay: {
           delay: 1500,
           disableOnInteraction: false
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
         }
       }
     }
