@@ -14,6 +14,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import swiper, { Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.css'
 import animated from 'animate.css'
+import VueFbCustomerChat from 'vue-fb-customer-chat'
 
 import App from './App.vue'
 import router from './router'
@@ -36,6 +37,13 @@ Vue.use(VeeValidate, {
 Vue.use(VueAwesomeSwiper)
 swiper.use([Autoplay])
 Vue.use(animated)
+Vue.use(VueFbCustomerChat, {
+  page_id: 103969374971837,
+  theme_color: '#37523d',
+  locale: 'zh_TW',
+  logged_in_greeting: '嗨，有問題可以私訊我唷!',
+  logged_out_greeting: '嗨，有什麼需要幫助的嗎?'
+})
 Vue.component('Loading', Loading)
 Vue.filter('currency', currency)
 new Vue({

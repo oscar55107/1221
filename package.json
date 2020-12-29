@@ -20,6 +20,7 @@
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
     "vue-axios": "^3.2.0",
+    "vue-fb-customer-chat": "^0.2.0",
     "vue-i18n": "^8.22.2",
     "vue-loading-overlay": "^3.4.2",
     "vue-router": "^3.2.0",

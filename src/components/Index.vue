@@ -11,6 +11,7 @@
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 import Alert from '@/components/AlertMessage'
+
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

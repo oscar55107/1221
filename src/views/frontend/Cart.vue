@@ -103,8 +103,6 @@
 
 <script>
 import Alert from '@/components/AlertMessage.vue'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
 import { mapActions } from 'vuex'
 
 export default {
@@ -178,9 +176,7 @@ export default {
     ...mapActions('cartModule', ['removeCartItem'])
   },
   components: {
-    Alert,
-    Swiper,
-    SwiperSlide
+    Alert
   },
   computed: {
     cart () {
