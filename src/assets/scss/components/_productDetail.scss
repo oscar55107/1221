@@ -1,0 +1,24 @@
+.product__card:hover{
+  cursor: pointer;
+}
+.card__img{
+  overflow:hidden
+}
+.card__img img{
+  transition: all 1s ease-out;
+  &:hover{
+    transform:scale(1.2,1.2);
+  }
+}
+.detail{
+  &__price{
+    @include mobile{
+      display: none !important;
+    }
+  }
+  &__text{
+    @include mobile{
+      font-size: 14px;
+    }
+  }
+}

@@ -83,21 +83,17 @@
         <h2 class="text-center text-primary my-6 hotItem" v-if ="cart.carts.length === 0">本月熱銷商品</h2>
         <div class="row" v-if ="cart.carts.length === 0">
             <div class="col">
-              <div class="swiper-container">
-                <div class="swiper-wrapper">
-                  <swiper class="swiper" :options="swiperOption">
-                    <swiper-slide v-for="(item) in products" :key="item.id">
-                      <div class="card h-100" @click="toProduct" h-100>
-                        <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
-                        <div class="card-body">
-                          <h5 class="card-title hotItem__text text-center">{{ item.title }}</h5>
-                        </div>
-                      </div>
-                    </swiper-slide>
-                  </swiper>
-                </div>
-              </div>
-            </div>
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide v-for="(item) in products" :key="item.id">
+                  <div class="card h-100" @click="toProduct">
+                    <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
+                    <div class="card-body">
+                      <h5 class="card-title hotItem__text text-center">{{ item.title }}</h5>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </swiper>
+          </div>
           </div>
       </div>
     </div>
@@ -118,7 +114,7 @@ export default {
       coupon_code: '',
       products: [],
       swiperOption: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         loop: true,
         spaceBetween: 30,
         grabCursor: true,
@@ -127,7 +123,11 @@ export default {
           disableOnInteraction: false
         },
         breakpoints: {
-          640: {
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          800: {
             slidesPerView: 3,
             spaceBetween: 20
           }

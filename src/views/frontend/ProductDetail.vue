@@ -31,22 +31,27 @@
     </div>
     <h4>你可能也會喜歡</h4>
     <div class="row mt-5">
-      <div class="col-sm-4 col" v-for="item in filterData" :key="item.id">
-        <div class="product__card" @click="toProduct">
-          <div class="card h-100 mt-3">
-            <div class="card__img">
-              <img :src="item.imageUrl" class="card-img-top" alt="可能也會喜歡的產品">
-            </div>
-            <div class="card-footer">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <div class="d-flex justify-content-end">
-                <div  v-if="!item.price">NT {{ item.origin_price | currency }}</div>
-                <del class="text-muted mr-3" v-if="item.price">NT {{ item.origin_price | currency }}</del>
-                <div class="text-danger" v-if="item.price">NT {{ item.price | currency }}</div>
+      <div class="col">
+        <swiper class="swiper" :options="swiperOption">
+          <swiper-slide v-for="item in filterData" :key="item.id">
+            <div class="card product__card h-100 mt-3" @click="toProduct">
+              <div class="card__img">
+                <img :src="item.imageUrl" class="card-img-top detail__img" alt="可能也會喜歡的產品">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center detail__text">{{ item.title }}</h5>
+                <div class="text-truncate pb-2">
+                  {{ item.description }}
+                </div>
+                <div class="d-flex justify-content-end detail__price">
+                  <div  v-if="!item.price">NT {{ item.origin_price | currency }}</div>
+                  <del class="text-muted mr-3" v-if="item.price">NT {{ item.origin_price | currency }}</del>
+                  <div class="text-danger" v-if="item.price">NT {{ item.price | currency }}</div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </div>
@@ -62,7 +67,27 @@ export default {
     return {
       products: [],
       product: {},
-      productId: ''
+      productId: '',
+      swiperOption: {
+        slidesPerView: 1,
+        loop: true,
+        spaceBetween: 30,
+        grabCursor: true,
+        autoplay: {
+          delay: 1500,
+          disableOnInteraction: false
+        },
+        breakpoints: {
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          800: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        }
+      }
     }
   },
   methods: {
@@ -110,8 +135,7 @@ export default {
           newData.push(item)
         }
       })
-      const sliceData = newData.slice(0, 3)
-      return sliceData
+      return newData
     },
     ...mapGetters('cartModule', ['cart', 'loadingItem'])
   },
@@ -123,18 +147,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .product__card:hover{
-    cursor: pointer;
-  }
-  .card__img{
-    overflow:hidden
-  }
-  .card__img img{
-    transition: all 1s ease-out;
-    &:hover{
-      transform:scale(1.2,1.2);
-    }
-  }
-</style>
