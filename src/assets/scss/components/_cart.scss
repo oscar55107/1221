@@ -1,7 +1,7 @@
-.hot{
+.hotItem{
   position: relative;
 }
-.hot::before , .hot::after{
+.hotItem::before , .hotItem::after{
   content: '';
   height: 1px;
   background: #37523d;
@@ -9,10 +9,10 @@
   top: 50%;
   width: 30%;
 }
-.hot::before{
+.hotItem::before{
   left: 0%;
 }
-.hot::after{
+.hotItem::after{
   right: 0%;
 }
 .table{
@@ -20,7 +20,7 @@
     font-size: 8px;
   }
   &__img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
   }
 }

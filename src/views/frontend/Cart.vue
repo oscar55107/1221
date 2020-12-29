@@ -80,7 +80,7 @@
             <p class="text-center">開幕期間，輸入 fireman 優惠碼，立即享 20% off 折扣 !!!!</p>
           </div>
         </div>
-        <h2 class="text-center text-primary my-6 hot" v-if ="cart.carts.length === 0">本月熱銷商品</h2>
+        <h2 class="text-center text-primary my-6 hotItem" v-if ="cart.carts.length === 0">本月熱銷商品</h2>
         <div class="row" v-if ="cart.carts.length === 0">
             <div class="col">
               <swiper class="swiper" :options="swiperOption">
