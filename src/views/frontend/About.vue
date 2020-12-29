@@ -3,8 +3,9 @@
     <section>
       <div class="brand__banner">
         <div class="brand__intro ml-3" data-aos="fade-right">
-          <p class="pl-4">大自然很美</p><br>
-          <p class="pl-5">只是你尚未踏上它的旅程</p>
+          <p class="pl-4">大自然很美<br>
+          只是你尚未踏上它的旅程
+          </p>
         </div>
       </div>
     </section>
@@ -14,12 +15,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-5 col-md-6 mb-3 d-flex flex-column justify-content-center">
-            <div class="py-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-right">
-              <h3 class="brand__title">品牌故事</h3><br>
-              <p>Fireman 是由 2 位熱愛露營的台灣人所創立</p><br>
-              <p>除了提供美學兼機能性的各種露營用品</p><br>
-              <p>更提供 相關露營知識 & 露營車租賃</p><br>
-              <p>讓野營與車露能夠享受與安全</p><br>
+            <div class="p-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-right">
+              <h3 class="brand__title">品牌故事</h3>
+              <p>
+                <span>Fireman</span> 是由 2 位熱愛露營的台灣人所創立<br>
+                除了提供美學兼機能性的各種露營用品<br>
+                更提供 相關露營知識 & 露營車租賃<br>
+                讓野營與車露能夠享受與安全<br>
+              </p>
             </div>
           </div>
           <div class="col-lg-7 col-md-6">
@@ -35,11 +38,13 @@
                 <div class="brand__fire"></div>
               </div>
               <div class="col-md-5 d-flex flex-column justify-content-center">
-                <div class="py-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-up">
-                  <h3 class="brand__title">經營理念</h3><br>
-                  <p>Fireman 秉持著專業、品質的理念</p><br>
-                  <p>來服務每位即將踏上露營之旅的旅客</p><br>
-                  <p>猶如 Fireman 的 Fire ， 永不熄滅 </p>
+                <div class="p-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-up">
+                  <h3 class="brand__title">經營理念</h3>
+                  <p>
+                    <span>Fireman</span> 秉持著專業、品質的理念<br>
+                    來服務每位即將踏上露營之旅的旅客<br>
+                    猶如 Fireman 的 Fire ， 永不熄滅<br>
+                  </p>
                 </div>
               </div>
             </div>

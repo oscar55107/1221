@@ -45,6 +45,11 @@ const routes = [
         component: () => import('@/views/frontend/CustomerCheckout.vue')
       },
       {
+        path: 'checkout',
+        name: 'Checkout',
+        component: () => import('@/views/frontend/Checkout.vue')
+      },
+      {
         path: 'product_detail/:productId',
         name: 'ProductDetail',
         component: () => import('@/views/frontend/ProductDetail.vue')
@@ -54,7 +59,7 @@ const routes = [
   {
     path: '/admin',
     name: 'Dashboard',
-    component: () => import('@/components/Dashboard.vue'),
+    component: () => import('@/components/backend/Dashboard.vue'),
     children: [
       {
         path: 'products',

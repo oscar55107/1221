@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navbar :len="cart.carts.length"></Navbar>
+    <Alert></Alert>
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -9,14 +10,18 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import Alert from '@/components/AlertMessage'
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
+  name: 'Index',
   methods: {
     ...mapActions('cartModule', ['getCart'])
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    Alert
   },
   computed: {
     ...mapGetters('cartModule', ['cart'])

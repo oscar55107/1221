@@ -16,8 +16,10 @@
 <script>
 import DNavbar from './DNavbar.vue'
 import DSidebar from './DSidebar.vue'
-import Alert from './AlertMessage.vue'
+import Alert from '../AlertMessage.vue'
+
 export default {
+  name: 'Dashboard',
   components: {
     DNavbar,
     DSidebar,

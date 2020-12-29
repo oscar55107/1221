@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import cartModule from './cart'
+import alertModules from './alert'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    cartModule
+    cartModule,
+    alertModules
   }
 })

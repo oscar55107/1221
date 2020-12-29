@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'DNavbar',
   methods: {
     signout () {
       const vm = this

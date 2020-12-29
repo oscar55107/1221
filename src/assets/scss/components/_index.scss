@@ -29,9 +29,13 @@
       font-size: 1rem;
     }
   }
+  &__title{
+    font-family: 'Carter One',cursive;
+  }
 }
 .header{
   &__btn{
+    z-index: 100;
     a span{
       position: absolute;
       bottom: 80px;
@@ -104,22 +108,6 @@
     @include mobile{
       position: relative;
     }
-    &__description{
-      @include mobile{
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.897);
-        height: 200px;
-        width: 80%;
-        bottom: -50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        right: 25px;
-      }
-      @include iphone6s{
-        height: 150px;
-      }
-    }
   }
   &__chair{
     background-attachment: fixed;
@@ -130,24 +118,6 @@
     }
     @include mobile{
       position: relative;
-    }
-    &__description{
-      @include mobile{
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.897);
-        height: 200px;
-        width: 80%;
-        top: 150px;
-        z-index: 999;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        right: 25px;
-      }
-      @include iphone6s{
-        top: 200px;
-        height: 150px;
-      }
     }
   }
   &__bg{
@@ -166,10 +136,11 @@
   }
   &__text{
     @include pad{
-      font-size: 15px;
+      font-size: 14px;
     }
     @include mobile{
-      display: none;
+      br{content:"";display:none}
+      font-size: 12px;
     }
   }
 }
@@ -188,6 +159,11 @@
 }
 
 .hot{
+  &__title{
+    @include pad{
+      font-size: 24px;
+    }
+  }
   &__text{
     text-align: center;
     background: #000;
@@ -198,6 +174,10 @@
     font-size: 20px;
     bottom:-250px;
     opacity:0.6;
+    @include mobile{
+      bottom: 0;
+      z-index: 5;
+    }
   }
   &__grill{
     @include banner('../src/assets/images/hot_grill.jpg',250px);

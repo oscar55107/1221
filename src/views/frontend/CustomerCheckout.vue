@@ -1,10 +1,8 @@
 <template>
   <div>
-    <Navbar></Navbar>
-    <Alert></Alert>
     <div class="container mt-7">
       <div class="row d-flex justify-content-center">
-        <div class="col-md-6 col-sm-8">
+        <div class="col-md-10 col">
           <div class="my-5">
             <h3 class="text-center text-primary mb-5">確認訂購資料</h3>
             <div class="card mb-5">
@@ -25,7 +23,7 @@
                   <tbody>
                     <tr v-for="item in order.products" :key="item.id">
                       <td>
-                        <img :src="item.product.imageUrl" class="img-fluid" alt="">
+                        <img :src="item.product.imageUrl" class="img-fluid" alt="訂單產品">
                       </td>
                       <td scope="row">{{ item.product.title }}</td>
                       <td>{{ item.qty }}/{{ item.product.unit }}</td>
@@ -82,12 +80,11 @@
                     </th>
                     <td>
                       <span v-if="!order.is_paid">尚未付款</span>
-                      <span v-else class="text-success">付款完成</span>
                     </td>
                   </tr>
                 </table>
                 <div class="text-right" v-if="order.is_paid === false">
-                  <button type="button" class="btn btn-primary btn-block">Pay</button>
+                  <button type="button" class="btn btn-primary btn-block" @click="toCheckout">確認付款</button>
                 </div>
               </div>
             </div>
@@ -95,15 +92,12 @@
         </div>
       </div>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
-import Alert from '@/components//AlertMessage.vue'
 export default {
+  name: 'CustomerCheckout',
   data () {
     return {
       order: {
@@ -129,20 +123,17 @@ export default {
       vm.$http.post(url).then(response => {
         if (response.data.success) {
           vm.getOrder()
-          vm.$bus.$emit('message:push', '付款成功', 'success')
         }
         vm.$store.dispatch('updateLoading', false)
       })
+    },
+    toCheckout () {
+      this.$router.push('/checkout')
     }
   },
   created () {
     this.orderId = this.$route.params.orderId
     this.getOrder()
-  },
-  components: {
-    Navbar,
-    Footer,
-    Alert
   }
 }
 </script>

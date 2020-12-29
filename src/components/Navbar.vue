@@ -2,9 +2,13 @@
 <div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
     <div class="container">
-      <router-link class="navbar-brand d-flex" to="/">
-        <i class="fas fa-tree"></i>
-        <h1 class="h5 ml-3">Fireman</h1>
+      <router-link class="navbar-brand" to="/">
+        <div class="d-flex align-items-start">
+          <div>
+            <i class="fas fa-tree"></i>
+          </div>
+          <h1 class="h3 ml-3">Fireman</h1>
+        </div>
       </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +27,9 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <router-link class="btn"  to="/cart">
+              <router-link class="btn" to="/cart">
                 <i class="trash fas fa-shopping-cart">
-                    <div class="trash__text" v-if="len">{{len}}</div>
+                    <div class="trash__text" v-if="len">{{ len }}</div>
                 </i>
               </router-link>
             </div>
@@ -38,12 +42,26 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
-  props: ['len']
+  name: 'Navbar',
+  props: ['len'],
+  mounted () {
+    $(function () {
+      if ($(window).width() < 800) {
+        $('.navbar .nav-item').on('click', function () {
+          $('.navbar-toggler').click()
+        })
+      }
+    })
+  }
 }
 </script>
 
 <style scoped lang="scss">
+h1{
+  font-family: 'Carter One',cursive;
+}
 .nav-item{
 font-weight: bold;
 border-bottom:2px solid transparent;

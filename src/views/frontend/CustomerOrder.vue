@@ -1,10 +1,9 @@
 <template>
   <div>
-    <Navbar></Navbar>
     <Alert></Alert>
     <div class="container mt-8">
       <div class="row d-flex justify-content-center">
-        <div class="col-md-6 col-sm-10">
+        <div class="col col-md-10">
           <div class="my-4">
             <div class="card text-center h-100">
               <div class="card-header bg-third">
@@ -15,34 +14,34 @@
                   <div class="form-group">
                     <label for="useremail">*電子郵件</label>
                     <input type="email" class="form-control" name="email" id="useremail"
-                        :class="{'is-invalid':errors.has('email')}"
-                        v-validate="'required|email'"
-                        v-model="form.user.email" placeholder="請輸入Email">
+                      :class="{'is-invalid':errors.has('email')}"
+                      v-validate="'required|email'"
+                      v-model="form.user.email" placeholder="請輸入Email">
                     <span class="text-danger" v-if="errors.has('email')">
-                      {{errors.first('email')}}
+                      {{ errors.first('email') }}
                     </span>
                   </div>
                   <div class="form-group">
                     <label for="username">*姓名</label>
                     <input type="text" class="form-control" name="name" id="username"
-                        :class="{'is-invalid': errors.has('name')}"
-                        v-model="form.user.name" v-validate="'required'" placeholder="請輸入姓名">
-                    <span class="text-danger" v-if="errors.has('name')">Please Enter Your Name</span>
+                      :class="{'is-invalid': errors.has('name')}"
+                      v-model="form.user.name" v-validate="'required'" placeholder="請輸入姓名">
+                    <span class="text-danger" v-if="errors.has('name')">請輸入您的姓名</span>
                   </div>
                   <div class="form-group">
                     <label for="usertel">*電話</label>
                     <input type="tel" class="form-control" id="usertel" v-model="form.user.tel"  name="tel"
                     :class="{'is-invalid': errors.has('tel')}"
                     v-validate="'required'" placeholder="請輸入電話">
-                    <span class="text-danger" v-if="errors.has('tel')">Please Enter Your Telephone</span>
+                    <span class="text-danger" v-if="errors.has('tel')">請輸入您的電話</span>
                   </div>
                   <div class="form-group">
                     <label for="useraddress">*地址</label>
                     <input type="text" class="form-control" name="address" id="useraddress" v-model="form.user.address"
-                        :class="{'is-invalid': errors.has('address')}"
-                        v-validate="'required'"
-                        placeholder="請輸入地址">
-                    <span class="text-danger" v-if="errors.has('address')">Address can not empty</span>
+                      :class="{'is-invalid': errors.has('address')}"
+                      v-validate="'required'"
+                      placeholder="請輸入地址">
+                    <span class="text-danger" v-if="errors.has('address')">請輸入您的地址</span>
                   </div>
                   <div class="form-group">
                     <label for="comment">留言</label>
@@ -58,7 +57,7 @@
           <div class="mb-5">
             <div class="card text-center h-100">
               <div class="card-header text-primary text-bold">
-                  貼心提醒
+                貼心提醒
               </div>
               <div class="card-body text-left">
                 <form class="form-check">
@@ -88,9 +87,10 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
 import Alert from '@/components/AlertMessage.vue'
+
 export default {
+  name: 'CustomerOrder',
   data () {
     return {
       form: {
@@ -118,13 +118,12 @@ export default {
             vm.isLoading = false
           })
         } else {
-          vm.$bus.$emit('message:push', '請輸入資料', 'danger')
+          vm.$store.dispatch('alertModules/updateMessage', { message: '請輸入資料' }, { root: true })
         }
       })
     }
   },
   components: {
-    Navbar,
     Alert
   }
 }
