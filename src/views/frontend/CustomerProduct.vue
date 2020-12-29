@@ -143,11 +143,11 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`
       vm.$store.dispatch('updateLoading', true)
       vm.$http.get(api).then(response => {
-        vm.$store.dispatch('updateLoading', false)
         const temp = response.data.products
         vm.products = temp.filter(item => {
           return item.is_enabled === 1
         })
+        vm.$store.dispatch('updateLoading', false)
       })
     },
     getProduct (id) {

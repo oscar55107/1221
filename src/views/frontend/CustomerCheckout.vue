@@ -82,6 +82,7 @@
                     </th>
                     <td>
                       <span v-if="!order.is_paid">尚未付款</span>
+                      <span v-else class="text-success">付款完成</span>
                     </td>
                   </tr>
                 </table>

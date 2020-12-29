@@ -111,11 +111,12 @@ export default {
       const order = vm.form
       vm.$validator.validate().then((valid) => {
         if (valid) {
+          vm.$store.dispatch('updateLoading', true)
           vm.$http.post(url, { data: order }).then((response) => {
             if (response.data.success) {
               vm.$router.push(`/customer_checkout/${response.data.orderId}`)
+              vm.$store.dispatch('updateLoading', false)
             }
-            vm.isLoading = false
           })
         } else {
           vm.$store.dispatch('alertModules/updateMessage', { message: '請輸入資料' }, { root: true })
