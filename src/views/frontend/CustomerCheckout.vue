@@ -10,36 +10,38 @@
                 <h4 class="h5 text-center text-primary text-bold">訂單資訊</h4>
               </div>
               <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th width="150"></th>
-                      <th scope="col">產品名稱</th>
-                      <th scope="col">數量</th>
-                      <th scope="col">單價</th>
-                      <th scope="col">價格</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="item in order.products" :key="item.id">
-                      <td>
-                        <img :src="item.product.imageUrl" class="img-fluid" alt="訂單產品">
-                      </td>
-                      <td scope="row">{{ item.product.title }}</td>
-                      <td>{{ item.qty }}/{{ item.product.unit }}</td>
-                      <td class="text-right">{{ item.final_total | currency }}</td>
-                      <td class="text-right">
-                        <strong>{{ ( item.final_total * item.qty ) | currency  }} </strong>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="4" class="text-right">總計</td>
-                      <td class="text-right">
-                        <strong>{{ order.total }}</strong>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive-lg">
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th class="d-none d-md-table-cell table__img"></th>
+                        <th scope="col">產品名稱</th>
+                        <th scope="col">數量</th>
+                        <th scope="col">單價</th>
+                        <th scope="col">價格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="item in order.products" :key="item.id">
+                        <td class="d-none d-md-table-cell">
+                          <img :src="item.product.imageUrl" class="img-fluid" alt="訂單產品">
+                        </td>
+                        <td scope="row">{{ item.product.title }}</td>
+                        <td>{{ item.qty }}</td>
+                        <td class="text-right">{{ item.final_total | currency }}</td>
+                        <td class="text-right">
+                          <strong>{{ ( item.final_total * item.qty ) | currency  }} </strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" class="text-right">總計</td>
+                        <td class="text-right">
+                          <strong>{{ order.total }}</strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
