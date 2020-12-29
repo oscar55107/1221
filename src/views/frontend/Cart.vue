@@ -102,6 +102,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import Alert from '@/components/AlertMessage.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
@@ -180,6 +181,11 @@ export default {
   created () {
     this.$store.dispatch('cartModule/getCart')
     this.getProducts()
+  },
+  mounted () {
+    $('.fa-cart-arrow-down').hover(function (e) {
+      $(this).toggleClass('animate__animated animate__bounce')
+    })
   }
 }
 </script>
