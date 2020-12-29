@@ -58,7 +58,7 @@
               </table>
             </div>
             <div class="none d-flex flex-column align-items-center mt-6" v-if="cart.carts.length === 0">
-              <i class="fa fa-cart-arrow-down fa-4x text-muted mb-2" aria-hidden="true"></i>
+              <i class="fa fa-cart-arrow-down fa-4x text-muted mb-2 animate__animated animate__bounce animate__infinite" aria-hidden="true"></i>
               購物車尚未有商品唷!!
               <button type="button" class="btn btn-outline-primary btn-md mt-3" @click='toProduct'>前往購買</button>
             </div>
@@ -102,7 +102,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import Alert from '@/components/AlertMessage.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
@@ -181,11 +180,6 @@ export default {
   created () {
     this.$store.dispatch('cartModule/getCart')
     this.getProducts()
-  },
-  mounted () {
-    $('.fa-cart-arrow-down').hover(function (e) {
-      $(this).toggleClass('animate__animated animate__bounce')
-    })
   }
 }
 </script>
