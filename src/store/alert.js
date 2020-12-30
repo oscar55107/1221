@@ -6,7 +6,7 @@ export default {
     messages: []
   },
   actions: {
-    updateMessage (context, { message, status = 'danger' }) {
+    updateMessage (context, message, status = 'danger') {
       const timestamp = Math.floor(new Date() / 1000)
       context.commit('PUSHMESSAGE', {
         message,
@@ -34,8 +34,6 @@ export default {
     }
   },
   getters: {
-    messages (state) {
-      return state.messages
-    }
+    messages: state => state.messages
   }
 }

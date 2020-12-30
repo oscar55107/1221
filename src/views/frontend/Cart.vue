@@ -159,7 +159,7 @@ export default {
           vm.$store.dispatch('cartModule/getCart')
           vm.$store.dispatch('updateLoading', false)
         } else {
-          vm.$bus.$emit('message:push', response.data.message, 'danger')
+          vm.$store.dispatch('alertModules/updateMessage', '輸入錯誤')
           vm.$store.dispatch('updateLoading', false)
         }
       })

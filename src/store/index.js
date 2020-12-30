@@ -24,5 +24,8 @@ export default new Vuex.Store({
   modules: {
     cartModule,
     alertModules
+  },
+  getters: {
+    isLoading: state => state.isLoading
   }
 })

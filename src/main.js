@@ -19,7 +19,6 @@ import VueFbCustomerChat from 'vue-fb-customer-chat'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './bus'
 import currency from './filters/currency'
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)

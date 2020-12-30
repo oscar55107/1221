@@ -47,14 +47,13 @@ export default ({
     updateProductQty (context, { originCartId, originProductId, newQty }) {
       context.commit('LOADINGITEM', originProductId)
       const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
-      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${originCartId}`
       const newCart = {
         product_id: originProductId,
         qty: newQty
       }
       axios
         .all([
-          axios.delete(delAPI),
+          context.dispatch('removeCartItem', originCartId),
           axios.post(addAPI, { data: newCart })
         ])
         .then(axios.spread(() => {
