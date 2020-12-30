@@ -127,7 +127,7 @@ export default {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`
       vm.$store.dispatch('updateLoading', true)
-      this.$http.get(api).then(response => {
+      vm.$http.get(api).then(response => {
         vm.$store.dispatch('updateLoading', false)
         vm.coupons = response.data.coupons
         vm.pagination = response.data.pagination
@@ -141,7 +141,7 @@ export default {
         vm.tempCoupon.is_enabled = 0
         vm.isNew = true
       } else {
-        vm.tempCoupon = Object.assign({}, item)
+        vm.tempCoupon = Object.assign({ ...item })
         vm.isNew = false
         vm.due_date = new Date(item.due_date * 1000).toISOString().split('T')[0]
       }
@@ -155,7 +155,7 @@ export default {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`
         httpMethod = 'put'
       }
-      this.$http[httpMethod](api, { data: vm.tempCoupon }).then(response => {
+      vm.$http[httpMethod](api, { data: vm.tempCoupon }).then(response => {
         if (response.data.success) {
           $('#couponModal').modal('hide')
           vm.getCoupons()
@@ -166,13 +166,13 @@ export default {
       })
     },
     openDelModal (item) {
-      this.tempCoupon = Object.assign({}, item)
+      this.tempCoupon = Object.assign({ ...item })
       $('#delCouponModal').modal('show')
     },
     deleteCoupon () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`
-      this.$http.delete(api).then(response => {
+      vm.$http.delete(api).then(response => {
         if (response.data.success) {
           $('#delCouponModal').modal('hide')
           vm.getCoupons()
