@@ -188,7 +188,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`
       const vm = this
       vm.$store.dispatch('updateLoading', true)
-      this.$http.get(api).then(response => {
+      vm.$http.get(api).then(response => {
         vm.products = response.data.products
         vm.$store.dispatch('updateLoading', false)
         vm.pagination = response.data.pagination
@@ -216,7 +216,7 @@ export default {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
         httpMethod = 'put'
       }
-      this.$http[httpMethod](api, { data: vm.tempProduct }).then(response => {
+      vm.$http[httpMethod](api, { data: vm.tempProduct }).then(response => {
         if (response.data.success) {
           $('#productModal').modal('hide')
           vm.getProducts()
@@ -229,7 +229,7 @@ export default {
     delProduct () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`
-      this.$http.delete(api).then(response => {
+      vm.$http.delete(api).then(response => {
         if (response.data.success) {
           $('#delProductModal').modal('hide')
           vm.getProducts()
@@ -245,17 +245,17 @@ export default {
       const formData = new FormData()
       formData.append('file-to-upload', uploadedFile)
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`
-      this.$store.dispatch('updateLoading', true)
-      this.$http.post(url, formData, {
+      vm.$store.dispatch('updateLoading', true)
+      vm.$http.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       }).then(response => {
-        this.$store.dispatch('updateLoading', false)
+        vm.$store.dispatch('updateLoading', false)
         if (response.data.success) {
           vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl)
         } else {
-          this.$bus.$emit('message:push', response.data.message, 'danger')
+          vm.$store.dispatch('alertModules/updateMessage', response.data.message)
         }
       })
     }
