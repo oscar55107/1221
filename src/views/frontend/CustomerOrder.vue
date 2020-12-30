@@ -31,8 +31,8 @@
                   <div class="form-group">
                     <label for="usertel">*電話</label>
                     <input type="tel" class="form-control" id="usertel" v-model="form.user.tel"  name="tel"
-                    :class="{'is-invalid': errors.has('tel')}"
-                    v-validate="'required'" placeholder="請輸入電話">
+                      :class="{'is-invalid': errors.has('tel')}"
+                      v-validate="'required'" placeholder="請輸入電話">
                     <span class="text-danger" v-if="errors.has('tel')">請輸入您的電話</span>
                   </div>
                   <div class="form-group">
@@ -48,7 +48,7 @@
                     <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message" placeholder="有什麼話想告訴我們?"></textarea>
                   </div>
                   <div class="text-right">
-                    <button class="btn btn-danger">建立訂單</button>
+                    <button type="button" class="btn btn-danger">建立訂單</button>
                   </div>
                 </form>
               </div>

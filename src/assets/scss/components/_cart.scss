@@ -9,6 +9,7 @@
     }
   }
 }
+
 .hotItem::before , .hotItem::after{
   content: '';
   height: 1px;
@@ -23,12 +24,15 @@
     width: 15%;
   }
 }
+
 .hotItem::before{
   left: 0%;
 }
+
 .hotItem::after{
   right: 0%;
 }
+
 .table{
   @include mobile{
     font-size: 8px;

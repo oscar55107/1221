@@ -70,9 +70,8 @@
           </div>
         </div>
         <div class="row">
-          <template>
-            <div class="col-lg-4 col-sm-6  mb-4"  v-for="item in filterPager" :key="item.id" >
-            <div class="card h-100 product__card" >
+          <div class="col-lg-4 col-sm-6 mb-4" v-for="item in filterPager" :key="item.id">
+            <div class="card h-100 product__card">
               <div class="box" @click="getProduct(item.id)">
                 <img :src="item.imageUrl" class="card-img-top img-fluid" alt="各項產品照片">
                 <div class="title">
@@ -94,14 +93,13 @@
                 </div>
               </div>
               <div class="card-footer d-flex">
-                <button type="button" class="btn btn-block btn-primary mt-3" @click='addToCart(item.id)'>
+                <button type="button" id="addBtn" v-preventReClick class="btn btn-block btn-primary mt-3" @click='addToCart(item.id)'>
                   <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
                   加入購物車
                 </button>
               </div>
             </div>
           </div>
-          </template>
         </div>
         <div v-if="(searchFilter || searchResult.length) && searchResult.length == 0" class="d-flex flex-column align-items-center mt-6">
           <i class="far fa-frown fa-3x text-muted mb-3"></i>
@@ -229,6 +227,20 @@ export default {
       })
     },
     ...mapGetters('cartModule', ['loadingItem'])
+  },
+  directives: {
+    preventReClick: {
+      inserted (el, binding) {
+        el.addEventListener('click', () => {
+          if (!el.disabled) {
+            el.disabled = true
+            setTimeout(() => {
+              el.disabled = false
+            }, 1500)
+          }
+        })
+      }
+    }
   },
   created () {
     this.getProducts()

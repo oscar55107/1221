@@ -12,24 +12,24 @@
     <div class="section__bg">
       <div class="container">
         <section class="section__bg py-5">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-5 col-md-6 mb-3 d-flex flex-column justify-content-center">
-            <div class="p-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-right">
-              <h3 class="brand__title">品牌故事</h3>
-              <p>
-                <span>Fireman</span> 是由 2 位熱愛露營的台灣人所創立<br>
-                除了提供美學兼機能性的各種露營用品<br>
-                更提供 相關露營知識 & 露營車租賃<br>
-                讓野營與車露能夠享受與安全<br>
-              </p>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-5 col-md-6 mb-3 d-flex flex-column justify-content-center">
+                <div class="p-5 brand__content d-flex flex-column justify-content-center align-items-center" data-aos="fade-right">
+                  <h3 class="brand__title">品牌故事</h3>
+                  <p>
+                    <span>Fireman</span> 是由 2 位熱愛露營的台灣人所創立<br>
+                    除了提供美學兼機能性的各種露營用品<br>
+                    更提供 相關露營知識 & 露營車租賃<br>
+                    讓野營與車露能夠享受與安全<br>
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-7 col-md-6">
+                <div class="brand__about"></div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-7 col-md-6">
-            <div class="brand__about"></div>
-          </div>
-        </div>
-      </div>
         </section>
         <section class="section__bg mb-7 pb-7">
           <div class="container-fluid">
@@ -54,15 +54,15 @@
     </div>
     <section class="pb-7">
         <div class="brand__car d-flex justify-content-center align-items-center">
-              <div class="brand__reservation p-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="50">
-                <h3>露營車租賃</h3>
-                <ul>
-                  <li class="my-4">承租人須年滿二十歲，取車時須備有效駕照且持有駕照，並以信用卡方式付費取車</li>
-                  <li class="mb-4">承租人名下有罰單未繳者，恕本公司無法承租。</li>
-                  <li class="mb-4">本公司提供ATM轉帳、現場現金付款、刷卡</li>
-                </ul>
-              </div>
-            </div>
+          <div class="brand__reservation p-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="50">
+            <h3>露營車租賃</h3>
+            <ul>
+              <li class="my-4">承租人須年滿二十歲，取車時須備有效駕照且持有駕照，並以信用卡方式付費取車</li>
+              <li class="mb-4">承租人名下有罰單未繳者，恕本公司無法承租。</li>
+              <li class="mb-4">本公司提供ATM轉帳、現場現金付款、刷卡</li>
+            </ul>
+          </div>
+        </div>
     </section>
     <section class="section__bg py-7">
       <div class="container">

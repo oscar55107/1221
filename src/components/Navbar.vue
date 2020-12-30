@@ -15,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto ">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item mr-4">
             <router-link class="nav-link text-bold" to="/about">品牌介紹</router-link>
           </li>

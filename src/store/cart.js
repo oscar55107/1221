@@ -32,7 +32,7 @@ export default ({
     },
     addToCart (context, { id, qty }) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
-      context.commit('LOADINGITEM', id)
+      context.commit('LOADING', true, { root: true })
       const cart = {
         product_id: id,
         qty
@@ -40,12 +40,12 @@ export default ({
       axios.post(api, { data: cart }).then(response => {
         if (response.data.success) {
           context.dispatch('getCart', id)
-          context.commit('LOADINGITEM', '')
+          context.commit('LOADING', false, { root: true })
         }
       })
     },
     updateProductQty (context, { originCartId, originProductId, newQty }) {
-      context.commit('LOADINGITEM', originProductId)
+      context.commit('LOADING', true, { root: true })
       const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
       const newCart = {
         product_id: originProductId,
@@ -58,7 +58,7 @@ export default ({
         ])
         .then(axios.spread(() => {
           context.dispatch('getCart')
-          context.commit('LOADINGITEM', '')
+          context.commit('LOADING', false, { root: true })
         }))
     },
     modifyQty (context, { productid, qty, id }) {

@@ -19,11 +19,10 @@
                   <th width="75">價錢</th>
                 </thead>
                 <tbody>
-                  <tr v-for="item in cart.carts" :key="item.id" >
+                  <tr v-for="item in cart.carts" :key="item.id">
                     <td class="align-middle">
                       <button type="button" class="btn btn-outline-danger btn-sm"
-                      @click="removeCartItem(item.id)"
-                      >
+                      @click="removeCartItem(item.id)">
                       <i class="far fa-trash-alt"></i>
                       </button>
                     </td>
@@ -31,7 +30,7 @@
                       <img :src="item.product.imageUrl" class="img-fluid" alt="購物車購買項目">
                     </td>
                     <td class="align-middle text-bold">
-                    {{ item.product.title }}
+                      {{ item.product.title }}
                       <div class="text-success" v-if="item.coupon">
                       已套用優惠卷
                       </div>
@@ -46,14 +45,14 @@
                   </tr>
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="4" v-if="cart.final_total == cart.total" class="text-right text-bold">總計</td>
-                        <td class="text-right text-bold" v-if="cart.final_total == cart.total">{{ cart.total | currency }}</td>
-                    </tr>
-                    <tr v-if="cart.final_total !== cart.total">
-                        <td colspan="4" class="text-right text-success">折扣價</td>
-                        <td class="text-right text-success">{{ cart.final_total }}</td>
-                    </tr>
+                  <tr>
+                    <td colspan="4" v-if="cart.final_total == cart.total" class="text-right text-bold">總計</td>
+                    <td class="text-right text-bold" v-if="cart.final_total == cart.total">{{ cart.total | currency }}</td>
+                  </tr>
+                  <tr v-if="cart.final_total !== cart.total">
+                    <td colspan="4" class="text-right text-success">折扣價</td>
+                    <td class="text-right text-success">{{ cart.final_total }}</td>
+                  </tr>
                 </tfoot>
               </table>
             </div>
@@ -82,19 +81,19 @@
         </div>
         <h2 class="text-center text-primary my-6 hotItem" v-if ="cart.carts.length === 0">本月熱銷商品</h2>
         <div class="row" v-if ="cart.carts.length === 0">
-            <div class="col">
-              <swiper class="swiper" :options="swiperOption">
-                <swiper-slide v-for="(item) in products" :key="item.id">
-                  <div class="card h-100" @click="toProduct">
-                    <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
-                    <div class="card-body">
-                      <h5 class="card-title hotItem__text text-center">{{ item.title }}</h5>
-                    </div>
+          <div class="col">
+            <swiper class="swiper" :options="swiperOption">
+              <swiper-slide v-for="(item) in products" :key="item.id">
+                <div class="card h-100" @click="toProduct">
+                  <img :src="item.imageUrl" class="card-img-top" alt="本月熱銷商品">
+                  <div class="card-body">
+                    <h5 class="card-title hotItem__text text-center">{{ item.title }}</h5>
                   </div>
-                </swiper-slide>
-              </swiper>
+                </div>
+              </swiper-slide>
+            </swiper>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>

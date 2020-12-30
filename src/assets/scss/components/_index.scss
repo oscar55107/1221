@@ -1,9 +1,11 @@
 .noGutter__row{
   margin: 0;
 }
+
 .noGutter__col{
   padding: 0;
 }
+
 // header 
 .header{
   &__bg{
@@ -49,6 +51,7 @@
     }
   }
 }
+
 .header{
   &__btn{
     a span{
@@ -71,6 +74,7 @@
     }
   }
 }
+
 @keyframes mouse {
   0% {
     transform: translate(0, 0);
@@ -144,6 +148,7 @@
     }
   }
 }
+
 .intro{
   &__title{
     @include pad{
@@ -202,15 +207,19 @@
     margin-bottom: 15px;
   }
 }
+
 .hot__item:hover{
   cursor: pointer;
 }
+
 .hot__item:hover .hot__text{
   bottom: 0;
 }
+
 .hot__item a{
   text-decoration:none !important;
 }
+
 .more{
   font-weight: bold;
   padding: 15px;
@@ -220,6 +229,7 @@
     opacity: 1;
   }
 }
+
 .gotop{
   position: fixed;
   bottom: 150px;
@@ -239,6 +249,7 @@
     opacity: 1;
   }
 }
+
 @keyframes sdb06 {
   0% {
     transform:  translate(0, 0);
@@ -252,6 +263,7 @@
     opacity: 0;
   }
 }
+
 .footer{
   background-color: #bebebe;
 }

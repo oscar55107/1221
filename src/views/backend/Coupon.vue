@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-right mt-4">
-      <button class="btn btn-primary" @click="openModal(true)">建立優惠卷</button>
+      <button type="button" class="btn btn-primary" @click="openModal(true)">建立優惠卷</button>
     </div>
     <table class="table mt-4 table-responsive-sm">
       <thead>
@@ -18,16 +18,16 @@
         <tr v-for="item in coupons" :key="item.id">
         <td>{{ item.title }}</td>
         <td>{{ item.percent }}%</td>
-        <td>{{ new Date(item.due_date*1000).toISOString().split('T')[0] }}</td>
+        <td>{{ new Date( item.due_date * 1000 ).toISOString().split('T')[0] }}</td>
         <td>
           <span v-if="item.is_enabled" class="text-success">啟用</span>
           <span v-else class="text-danger">未啟用</span>
         </td>
         <td>
-          <button class="btn btn-sm btn-outline-primary" @click="openModal(false,item)">編輯</button>
+          <button type="button" class="btn btn-sm btn-outline-primary" @click="openModal(false,item)">編輯</button>
         </td>
         <td>
-          <button class="btn btn-sm btn-outline-danger" @click="openDelModal(item)">刪除</button>
+          <button type="button" class="btn btn-sm btn-outline-danger" @click="openDelModal(item)">刪除</button>
         </td>
         </tr>
       </tbody>
@@ -105,7 +105,9 @@
 <script>
 import $ from 'jquery'
 import Pagination from '@/components/Pagination.vue'
+
 export default {
+  name: 'Coupon',
   data () {
     return {
       coupons: [],
@@ -141,7 +143,7 @@ export default {
         vm.tempCoupon.is_enabled = 0
         vm.isNew = true
       } else {
-        vm.tempCoupon = Object.assign({ ...item })
+        vm.tempCoupon = { ...item }
         vm.isNew = false
         vm.due_date = new Date(item.due_date * 1000).toISOString().split('T')[0]
       }
@@ -166,7 +168,7 @@ export default {
       })
     },
     openDelModal (item) {
-      this.tempCoupon = Object.assign({ ...item })
+      this.tempCoupon = { ...item }
       $('#delCouponModal').modal('show')
     },
     deleteCoupon () {

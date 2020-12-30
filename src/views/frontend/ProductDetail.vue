@@ -21,11 +21,11 @@
           </option>
         </select>
         <div class="d-flex justify-content-end align-items-end">
-          <h5 class="mr-4 product__total">  小計 : NT{{ (product.num * product.price) | currency }}</h5>
-          <div class="btn btn-primary mt-2" @click="addToCart(product.id,product.num)">
+          <h5 class="mr-4 product__total">小計 : NT{{ (product.num * product.price) | currency }}</h5>
+          <button type="button" class="btn btn-primary mt-2" v-preventReClick @click="addToCart(product.id,product.num)">
             <i class="fas fa-spinner fa-spin" v-if="loadingItem === product.id"></i>
             加到購物車
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -138,6 +138,20 @@ export default {
       return newData
     },
     ...mapGetters('cartModule', ['cart', 'loadingItem'])
+  },
+  directives: {
+    preventReClick: {
+      inserted (el, binding) {
+        el.addEventListener('click', () => {
+          if (!el.disabled) {
+            el.disabled = true
+            setTimeout(() => {
+              el.disabled = false
+            }, 1500)
+          }
+        })
+      }
+    }
   },
   created () {
     this.productId = this.$route.params.productId

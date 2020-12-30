@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr v-for="item in sortOrder" :key="item.id" :class="{ 'text-secondary': !item.is_paid }">
-          <td>{{ new Date(item.create_at*1000).toISOString().split('T')[0] }}</td>
+          <td>{{ new Date( item.create_at * 1000 ).toISOString().split('T')[0] }}</td>
           <td>
               <span v-text="item.user.email" v-if="item.user"></span>
           </td>

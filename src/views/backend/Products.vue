@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="text-right mt-4">
-        <button class="btn btn-primary" @click="openModal(true)">建立新產品</button>
+        <button type="button" class="btn btn-primary" @click="openModal(true)">建立新產品</button>
       </div>
       <div class="table-responsive-sm">
         <table class="table mt-5">
@@ -29,10 +29,10 @@
               <span v-else>未啟用</span>
             </td>
             <td>
-              <button class="btn btn-sm btn-outline-primary" @click="openModal(false,item)">編輯</button>
+              <button type="button" class="btn btn-sm btn-outline-primary" @click="openModal(false,item)">編輯</button>
             </td>
             <td>
-              <button class="btn btn-sm btn-outline-danger" @click="openDelModal(item)">刪除</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" @click="openDelModal(item)">刪除</button>
             </td>
           </tr>
         </tbody>
@@ -58,7 +58,7 @@
                   <div class="form-group">
                   <label for="image">輸入圖片網址</label>
                   <input type="text" class="form-control" id="image"
-                  v-model="tempProduct.imageUrl"
+                    v-model="tempProduct.imageUrl"
                     placeholder="Please Enter Image Url">
                   </div>
                   <div class="form-group">
@@ -80,28 +80,28 @@
                     <div class="form-group col-md-6">
                       <label for="category">分類</label>
                       <input type="text" class="form-control" id="category"
-                      v-model="tempProduct.category"
-                      placeholder="Please Enter Category">
+                        v-model="tempProduct.category"
+                        placeholder="Please Enter Category">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="price">單位</label>
                       <input type="unit" class="form-control" id="unit"
-                      v-model="tempProduct.unit"
-                      placeholder="Please Enter Unit">
+                        v-model="tempProduct.unit"
+                        placeholder="Please Enter Unit">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="origin_price">原價</label>
                         <input type="number" class="form-control" id="origin_price"
-                        v-model="tempProduct.origin_price"
-                        placeholder="Please Enter Price">
+                          v-model="tempProduct.origin_price"
+                          placeholder="Please Enter Price">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="price">售價</label>
                       <input type="number" class="form-control" id="price"
-                      v-model="tempProduct.price"
-                      placeholder="Please Enter Sale">
+                        v-model="tempProduct.price"
+                        placeholder="Please Enter Sale">
                     </div>
                   </div>
                   <hr>
@@ -121,10 +121,10 @@
                   <div class="form-group">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox"
-                      v-model="tempProduct.is_enabled"
-                      :true-value="1"
-                      :false-value="0"
-                      id="is_enabled">
+                        v-model="tempProduct.is_enabled"
+                        :true-value="1"
+                        :false-value="0"
+                        id="is_enabled">
                       <label class="form-check-label" for="is_enabled">
                       是否啟用
                       </label>
@@ -171,6 +171,7 @@ import $ from 'jquery'
 import Pagination from '@/components/Pagination.vue'
 
 export default {
+  name: 'Products',
   data () {
     return {
       products: [],
@@ -198,13 +199,13 @@ export default {
         this.tempProduct = {}
         this.isNew = true
       } else {
-        this.tempProduct = Object.assign({ ...item })
+        this.tempProduct = { ...item }
         this.isNew = false
       }
       $('#productModal').modal('show')
     },
     openDelModal (item) {
-      this.tempProduct = Object.assign({ ...item })
+      this.tempProduct = { ...item }
       $('#delProductModal').modal('show')
     },
     updateProduct () {

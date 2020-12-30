@@ -1,5 +1,5 @@
 <template>
-  <div class="message-alert" :class="{'active' : messages.length !== 0}">
+  <div class="message-alert" :class="{ 'active' : messages.length !== 0 }">
     <div class="alert alert-dismissible"
       :class="'alert-' + item.status"
       v-for="(item, i) in messages" :key="i">
