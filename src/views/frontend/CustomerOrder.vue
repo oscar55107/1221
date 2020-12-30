@@ -119,7 +119,7 @@ export default {
             }
           })
         } else {
-          vm.$store.dispatch('alertModules/updateMessage', { message: '請輸入資料' })
+          vm.$store.dispatch('alertModules/updateMessage', '請輸入資料')
         }
       })
     }

@@ -41,7 +41,7 @@
       <Pagination @postPage="getProducts" :page-data="pagination"></Pagination>
       <!-- Modal -->
       <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true">
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content border-0">
             <div class="modal-header bg-primary text-white">
@@ -49,7 +49,7 @@
               <span>新增產品</span>
               </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
@@ -65,9 +65,7 @@
                   <label for="customFile">上傳圖片
                     <i class="fas fa-spinner fa-spin" v-if="status.fileUpLoading"></i>
                   </label>
-                  <input type="file" id="customFile" class="form-control"
-                    @change="uploadFile"
-                    ref="files">
+                  <input type="file" id="customFile" class="form-control" @change="uploadFile" ref="files">
                   </div>
                   <img class="img-fluid" alt="商品圖片" :src="tempProduct.imageUrl">
                 </div>
@@ -116,8 +114,9 @@
                   <div class="form-group">
                     <label for="content">內容</label>
                     <textarea type="text" class="form-control" id="content"
-                        v-model="tempProduct.content"
-                        placeholder="Please Enter Content"></textarea>
+                      v-model="tempProduct.content"
+                      placeholder="Please Enter Content">
+                    </textarea>
                   </div>
                   <div class="form-group">
                     <div class="form-check">
@@ -199,13 +198,13 @@ export default {
         this.tempProduct = {}
         this.isNew = true
       } else {
-        this.tempProduct = Object.assign(...item)
+        this.tempProduct = Object.assign({ ...item })
         this.isNew = false
       }
       $('#productModal').modal('show')
     },
     openDelModal (item) {
-      this.tempProduct = Object.assign({}, item)
+      this.tempProduct = Object.assign({ ...item })
       $('#delProductModal').modal('show')
     },
     updateProduct () {
@@ -251,12 +250,12 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       }).then(response => {
-        vm.$store.dispatch('updateLoading', false)
         if (response.data.success) {
           vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl)
         } else {
           vm.$store.dispatch('alertModules/updateMessage', response.data.message)
         }
+        vm.$store.dispatch('updateLoading', false)
       })
     }
   },

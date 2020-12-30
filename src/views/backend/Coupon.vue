@@ -32,7 +32,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination @postPage="getCoupons" :pages="pagination"></Pagination>
+    <Pagination @postPage="getCoupons" :page-data="pagination"></Pagination>
     <!-- Modal -->
     <div class="modal fade" id="couponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
