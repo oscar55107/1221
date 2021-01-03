@@ -22,7 +22,7 @@
         </select>
         <div class="d-flex justify-content-end align-items-end">
           <h5 class="mr-4 product__total">小計 : NT{{ (product.num * product.price) | currency }}</h5>
-          <button type="button" class="btn btn-primary mt-2" v-preventReClick @click="addToCart(product.id,product.num)">
+          <button type="button" class="btn btn-primary mt-2" v-preventReClick @click="addToCart(product.id,product.num,product.title,product.price)">
             <i class="fas fa-spinner fa-spin" v-if="loadingItem === product.id"></i>
             加到購物車
           </button>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ProductDetail',
@@ -101,17 +101,42 @@ export default {
         vm.$store.dispatch('updateLoading', false)
       })
     },
-    addToCart (id, qty = 1) {
-      const target = this.$store.state.cartModule.cart.carts.filter(item => item.product_id === id)
-      if (target.length > 0) {
-        const sameItem = target[0]
-        const originQty = sameItem.qty
-        const originCartId = sameItem.id
-        const originProductId = sameItem.product_id
-        const newQty = originQty + qty
-        this.$store.dispatch('cartModule/updateProductQty', { originCartId, originProductId, newQty })
+    getCart () {
+      this.cartData = JSON.parse(localStorage.getItem('cartData')) || []
+    },
+    addToCart (id, qty = 1, title, price) {
+      const vm = this
+      const cacheCartId = []
+      vm.cartData.forEach(item => cacheCartId.push(item.product_id))
+      if (cacheCartId.indexOf(id) === -1) {
+        const cartContent = {
+          product_id: id,
+          qty: 1,
+          title: title,
+          price: price
+        }
+        vm.cartData.push(cartContent)
+        localStorage.setItem('cartData', JSON.stringify(vm.cartData))
+        vm.getCart()
+        vm.$bus.$emit('cart:get')
       } else {
-        this.$store.dispatch('cartModule/addToCart', { id, qty })
+        vm.cartData.forEach((item, key) => {
+          if (item.product_id === id) {
+            const originQty = item.qty
+            const newQty = originQty + qty
+            const cache = {
+              product_id: id,
+              qty: newQty,
+              title: title,
+              price: price
+            }
+            vm.cartData.splice(key, 1)
+            vm.cartData.push(cache)
+            localStorage.setItem('cartData', JSON.stringify(vm.cartData))
+            vm.getCart()
+            vm.$bus.$emit('cart:get')
+          }
+        })
       }
     },
     getProducts () {
@@ -123,8 +148,7 @@ export default {
     },
     toProduct () {
       this.$router.push('/customer_product')
-    },
-    ...mapActions('cartModule', ['getCart'])
+    }
   },
   computed: {
     filterData () {
@@ -147,7 +171,7 @@ export default {
             el.disabled = true
             setTimeout(() => {
               el.disabled = false
-            }, 1500)
+            }, 1000)
           }
         })
       }

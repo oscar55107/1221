@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar :len="cart.carts.length"></Navbar>
+    <Navbar></Navbar>
     <Alert></Alert>
     <router-view></router-view>
     <Footer></Footer>

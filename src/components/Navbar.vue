@@ -27,17 +27,61 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <router-link class="btn" to="/cart">
+              <button class="btn" to="/cart" data-toggle="modal" data-target="#cartModal">
                 <i class="trash fas fa-shopping-cart">
-                    <div class="trash__text" v-if="len">{{ len }}</div>
+                    <div class="trash__text" v-if="cartData.length">{{ cartData.length }}</div>
                 </i>
-              </router-link>
+              </button>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">購物清單</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-md" v-if="cartData.length">
+          <thead>
+            <th width="30%">名稱</th>
+            <th width="30%">數量</th>
+            <th width="20%">價格</th>
+            <th width="20%">刪除</th>
+          </thead>
+          <tbody>
+            <tr v-for="item in cartData" :key="item.id">
+              <td width="50%">{{ item.title }}</td>
+              <td width="20%">{{ item.qty }}</td>
+              <td width="10%">{{ item.price * item.qty | currency}}</td>
+              <td>
+                <button type="button" class="btn btn-outline-danger btn-sm" @click.prevent="remove(item)">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-if="cartData.length === 0">
+          <div class="d-flex flex-column align-items-center">
+            <i class="trash fas fa-shopping-cart fa-3x text-primary my-4"></i>
+            <p>購物車尚未有商品</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click.prevent="toProduct">繼續購買</button>
+        <button type="button" class="btn btn-primary" v-if="cartData.length" @click.prevent="toCart">結帳去</button>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
 </template>
 
@@ -46,6 +90,33 @@ import $ from 'jquery'
 export default {
   name: 'Navbar',
   props: ['len'],
+  data () {
+    return {
+      cartData: []
+    }
+  },
+  methods: {
+    getCart () {
+      const vm = this
+      vm.cartData = JSON.parse(localStorage.getItem('cartData')) || []
+    },
+    remove (item) {
+      const index = this.cartData.indexOf(item)
+      this.cartData.splice(index, 1)
+      localStorage.setItem('cartData', JSON.stringify(this.cartData))
+      this.getCart()
+    },
+    toProduct () {
+      this.$router.push('customer_product').catch(() => {})
+    },
+    toCart () {
+      this.$router.push('cartcheckout')
+      $('#cartModal').modal('hide')
+    }
+  },
+  created () {
+    this.$bus.$on('cart:get', () => this.getCart())
+  },
   mounted () {
     $(function () {
       if ($(window).width() < 800) {

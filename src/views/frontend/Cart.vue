@@ -12,11 +12,11 @@
             <div class="table-responsive-lg">
               <table class="table table-sm" v-if ="cart.carts.length">
                 <thead>
-                  <th width="50"></th>
+                  <th></th>
                   <th class="d-none d-md-table-cell table__img">產品圖片</th>
-                  <th>產品名稱</th>
-                  <th width="75">數量</th>
-                  <th width="75">價錢</th>
+                  <th width="30%">產品名稱</th>
+                  <th width="40%">數量</th>
+                  <th>價錢</th>
                 </thead>
                 <tbody>
                   <tr v-for="item in cart.carts" :key="item.id">

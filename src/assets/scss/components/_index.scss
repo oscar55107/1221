@@ -108,9 +108,7 @@
     @include mobile{
       height: 300px;
       background-attachment: local;
-    }
-    @include mobile{
-      position: relative;
+      margin-bottom: 25px;
     }
   }
   &__chair{
@@ -120,12 +118,22 @@
       height: 300px;
       background-attachment: local;
     }
-    @include mobile{
-      position: relative;
+    &__description{
+      @include mobile{
+        position: absolute;
+        z-index: 5;
+        bottom: 0;
+        margin-bottom: 50px;
+      }
     }
   }
   &__bg{
     background-color: #f0f0f0;
+  }
+  &__slogon{
+    @include mobile{
+      padding-bottom: 0 !important;
+    }
   }
   &__title{
     @include pad{
@@ -145,6 +153,12 @@
     @include mobile{
       br{content:"";display:none}
       font-size: 12px;
+    }
+  }
+  &__position{
+    @include mobile{
+      position: relative;
+      padding: 0 0 300px 0 !important;
     }
   }
 }
@@ -226,26 +240,6 @@
   border: 2px solid #fff;
   &:hover{
     background-color: rgb(68, 68, 68);
-    opacity: 1;
-  }
-}
-
-.gotop{
-  position: fixed;
-  bottom: 150px;
-  right: 37px;
-  height: 30px;
-  width: 30px;
-  color:#37523d;
-  cursor: pointer;
-  transition: all .3s ease;
-  opacity: 0.5;
-  font-size: 30px;
-  animation: sdb06 3s infinite;
-  @include mobile{
-    display: none ;
-  }
-  &:hover{
     opacity: 1;
   }
 }

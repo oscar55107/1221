@@ -1,20 +1,21 @@
 <template>
   <div>
-    <table class="table mt-4 table-responsive-sm" v-if="orders.length">
+    <div class="table-responsive-lg">
+      <table class="table mt-7 table-sm" v-if="orders.length">
       <thead>
         <tr>
-          <th>Time</th>
-          <th>Email</th>
-          <th>Item</th>
-          <th width="140">Amount Payable</th>
-          <th width="120">Is Pay</th>
+          <th width="10%">時間</th>
+          <th width="20%">姓名</th>
+          <th width="50%">名稱</th>
+          <th width="100">價錢</th>
+          <th width="100">是否付款</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in sortOrder" :key="item.id" :class="{ 'text-secondary': !item.is_paid }">
           <td>{{ new Date( item.create_at * 1000 ).toISOString().split('T')[0] }}</td>
           <td>
-              <span v-text="item.user.email" v-if="item.user"></span>
+              <span v-text="item.user.name" v-if="item.user"></span>
           </td>
           <td>
             <ul class="list-unstyled">
@@ -31,7 +32,8 @@
           </td>
         </tr>
       </tbody>
-    </table>
+      </table>
+    </div>
     <Pagination @postPage="getOrders" :page-data="pagination"></Pagination>
   </div>
 </template>
@@ -53,6 +55,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`
       vm.$store.dispatch('updateLoading', true)
       vm.$http.get(api).then(response => {
+        console.log(response)
         vm.$store.dispatch('updateLoading', false)
         vm.orders = response.data.orders
         vm.pagination = response.data.pagination

@@ -15,8 +15,8 @@
                 <div class="btn btn-primary btn-md w-50" @click="toProduct">繼續購物</div>
               </div>
               <div class="card-footer d-flex flex-column align-items-center">
-                <h6 class="mb-4">退換貨說明</h6>
-                <p class="">
+                <h4 class="mb-4">退換貨說明</h4>
+                <p>
                   ※請直接撥打04-12345678，或到粉絲團詢問相關事宜，會有專人直接為您服務。<br>
                   ※須於訂單商品送達後14日內申請<br>
                   ※退回之商品內容必須保維持所有商品、贈品、附件、包裝、附隨文件或資料的完整性

@@ -31,7 +31,7 @@
             </div>
           </div>
         </section>
-        <section class="section__bg mb-7 pb-7">
+        <section class="section__bg pb-7">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-7">
@@ -52,7 +52,7 @@
         </section>
       </div>
     </div>
-    <section class="pb-7">
+    <section>
         <div class="brand__car d-flex justify-content-center align-items-center">
           <div class="brand__reservation p-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="50">
             <h3>露營車租賃</h3>

@@ -10,7 +10,7 @@
                 <h4 class="h5  text-primary text-center text-bold">填寫訂購資料</h4>
               </div>
               <div class="card-body text-left">
-                <form @submit.prevent="createOrder">
+                <form>
                   <div class="form-group">
                     <label for="useremail">*電子郵件</label>
                     <input type="email" class="form-control" name="email" id="useremail"
@@ -48,7 +48,7 @@
                     <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message" placeholder="有什麼話想告訴我們?"></textarea>
                   </div>
                   <div class="text-right">
-                    <button type="button" class="btn btn-danger">建立訂單</button>
+                    <button type="button" class="btn btn-danger" @click.prevent="createOrder">建立訂單</button>
                   </div>
                 </form>
               </div>

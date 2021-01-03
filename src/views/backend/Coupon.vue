@@ -3,15 +3,15 @@
     <div class="text-right mt-4">
       <button type="button" class="btn btn-primary" @click="openModal(true)">建立優惠卷</button>
     </div>
-    <table class="table mt-4 table-responsive-sm">
+    <table class="table mt-4 table-sm">
       <thead>
         <tr>
-        <th width="120">優惠卷名稱</th>
-        <th width="120">折扣百分比</th>
-        <th width="140">到期日</th>
-        <th width="140">是否啟用</th>
-        <th width="80">編輯</th>
-        <th width="120">刪除</th>
+        <th width="20%">名稱</th>
+        <th width="30%">折扣百分比</th>
+        <th width="20%">到期日</th>
+        <th width="20%">是否啟用</th>
+        <th>編輯</th>
+        <th>刪除</th>
         </tr>
       </thead>
       <tbody>
@@ -70,8 +70,8 @@
             </div>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-primary" @click="updateCoupon">確認</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-sm btn-primary" @click="updateCoupon">確認</button>
           </div>
         </div>
       </div>

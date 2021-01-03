@@ -1,33 +1,33 @@
 <template>
 <div>
-  <div class="container">
-    <div id="carouselExampleCaptions" class="carousel slide mt-8" data-ride="carousel" data-interval="3000">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="@/assets/images/product-tent.jpg" class="d-block w-100" alt="帳篷">
-          <div class="carousel-caption d-md-block">
-            <h3>帳篷</h3>
-          </div>
+  <div id="carouselExampleCaptions" class="carousel slide mt-8" data-ride="carousel" data-interval="3000">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="@/assets/images/product-tent.jpg" class="d-block w-100" alt="帳篷">
+        <div class="carousel-caption d-md-block">
+          <h3>帳篷</h3>
         </div>
-        <div class="carousel-item">
-          <img src="@/assets/images/product-kitchen.jpg" class="d-block w-100" alt="廚具">
-          <div class="carousel-caption d-md-block">
-            <h3>廚具</h3>
-          </div>
+      </div>
+      <div class="carousel-item">
+        <img src="@/assets/images/product-kitchen.jpg" class="d-block w-100" alt="廚具">
+        <div class="carousel-caption d-md-block">
+          <h3>廚具</h3>
         </div>
-        <div class="carousel-item">
-          <img src="@/assets/images/product-bag.jpg" class="d-block w-100" alt="機能背包">
-          <div class="carousel-caption d-md-block">
-            <h3>機能背包</h3>
-          </div>
+      </div>
+      <div class="carousel-item">
+        <img src="@/assets/images/product-bag.jpg" class="d-block w-100" alt="機能背包">
+        <div class="carousel-caption d-md-block">
+          <h3>機能背包</h3>
         </div>
       </div>
     </div>
+  </div>
+  <div class="container">
     <div class="row noGutter__row">
       <div class="sale noGutter__co col-12 text-center py-3 mt-6" data-aos="fade-up">
         開幕期間，輸入 fireman 優惠碼，立即享 <span>20% off</span> 折扣 !!!!
@@ -93,7 +93,7 @@
                 </div>
               </div>
               <div class="card-footer d-flex">
-                <button type="button" id="addBtn" v-preventReClick class="btn btn-block btn-primary mt-3" @click='addToCart(item.id)'>
+                <button type="button" id="addBtn" v-preventReClick class="btn btn-block btn-primary mt-3" @click='addToCart(item)'>
                   <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
                   加入購物車
                 </button>
@@ -131,7 +131,8 @@ export default {
       product: {},
       visibility: 'all',
       searchFilter: '',
-      searchResult: []
+      searchResult: [],
+      cartData: []
     }
   },
   methods: {
@@ -152,17 +153,42 @@ export default {
       const vm = this
       vm.$router.push(`/product_detail/${id}`)
     },
-    addToCart (id, qty = 1) {
-      const target = this.$store.state.cartModule.cart.carts.filter(item => item.product_id === id)
-      if (target.length > 0) {
-        const sameItem = target[0]
-        const originQty = sameItem.qty
-        const originCartId = sameItem.id
-        const originProductId = sameItem.product_id
-        const newQty = originQty + qty
-        this.$store.dispatch('cartModule/updateProductQty', { originCartId, originProductId, newQty })
+    getCart () {
+      this.cartData = JSON.parse(localStorage.getItem('cartData')) || []
+    },
+    addToCart (data, qty = 1) {
+      const vm = this
+      vm.getCart()
+      const cacheCartId = []
+      vm.cartData.forEach(item => cacheCartId.push(item.product_id))
+      if (cacheCartId.indexOf(data.id) === -1) {
+        const cartContent = {
+          product_id: data.id,
+          qty: 1,
+          title: data.title,
+          price: data.price
+        }
+        vm.cartData.push(cartContent)
+        localStorage.setItem('cartData', JSON.stringify(vm.cartData))
+        vm.getCart()
+        vm.$bus.$emit('cart:get')
       } else {
-        this.$store.dispatch('cartModule/addToCart', { id, qty })
+        vm.cartData.forEach((item, key) => {
+          if (item.product_id === data.id) {
+            let { qty } = item
+            const cache = {
+              product_id: data.id,
+              qty: qty += 1,
+              title: data.title,
+              price: data.price
+            }
+            vm.cartData.splice(key, 1)
+            vm.cartData.push(cache)
+            localStorage.setItem('cartData', JSON.stringify(vm.cartData))
+            vm.getCart()
+            vm.$bus.$emit('cart:get')
+          }
+        })
       }
     },
     getPage (page = 1) {
@@ -171,13 +197,11 @@ export default {
     },
     searchProduct () {
       const vm = this
-      // 重製&清除狀態
       vm.pagination.current_page = 1
       vm.visibility = ''
       if (vm.searchFilter) {
         vm.searchResult = vm.products.filter((item) => { return item.title.match(vm.searchFilter) })
       } else {
-        // 清除搜尋結果
         vm.searchResult = []
       }
     },
@@ -236,7 +260,7 @@ export default {
             el.disabled = true
             setTimeout(() => {
               el.disabled = false
-            }, 1500)
+            }, 500)
           }
         })
       }
@@ -244,6 +268,7 @@ export default {
   },
   created () {
     this.getProducts()
+    this.getCart()
   }
 }
 </script>

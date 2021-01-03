@@ -3,14 +3,14 @@
       <div class="text-right mt-4">
         <button type="button" class="btn btn-primary" @click="openModal(true)">建立新產品</button>
       </div>
-      <div class="table-responsive-sm">
-        <table class="table mt-5">
+      <div class="table-responsive-lg">
+        <table class="table table-sm mt-5">
         <thead>
-          <th width="120">分類</th>
-          <th >名稱</th>
+          <th width="15%">分類</th>
+          <th width="20%">名稱</th>
           <th width="120">原價</th>
           <th width="120">售價</th>
-          <th width="140">啟用</th>
+          <th width="15%">啟用</th>
           <th width="80">編輯</th>
           <th width="120">刪除</th>
         </thead>

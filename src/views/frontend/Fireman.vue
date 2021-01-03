@@ -13,7 +13,7 @@
         </div>
       </div>
     </header>
-    <section class="py-7">
+    <section class="py-7 section__slogon">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-5 noGutter__col d-flex flex-column justify-content-center text-center">
@@ -38,7 +38,7 @@
             <div class="section__tent"></div>
           </div>
           <div class="col-md-6 d-flex flex-column justify-content-center text-center px-7">
-            <div class="section__tent__description">
+            <div>
               <h2 class="mb-3 section__title pt-2">帳篷</h2>
               <div class="section__text">
                 <p>還在煩惱找不到人露營嗎</p><br>
@@ -54,11 +54,11 @@
         </div>
       </div>
     </section>
-    <section class="pb-7 mb-4 section__bg">
+    <section class="pb-7 mb-4 section__bg section__position">
       <div class="container-fluid">
         <div class="row">
-          <div  class="col-md-6 d-flex flex-column justify-content-center text-center px-7">
-            <div class="section__chair__description">
+          <div class="col-md-6 d-flex flex-column section__chair__description justify-content-center text-center px-7">
+            <div>
               <h2 class="mb-3 section__title">戶外椅</h2>
               <div class="section__text">
                 <p>每天坐在辦公椅上</p><br>
@@ -129,9 +129,6 @@
         </div>
       </div>
     </section>
-    <div class="gotop" @click="gotop">
-      <i class='fa fa-chevron-up'></i>
-    </div>
   </div>
 </template>
 
@@ -143,11 +140,6 @@ export default {
   methods: {
     toCproduct () {
       this.$router.push('/customer_product')
-    },
-    gotop () {
-      $('html,body').animate({
-        scrollTop: 0
-      }, 2000)
     },
     godown () {
       const bodyHeight = $('body').height()

@@ -20,6 +20,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import currency from './filters/currency'
+import './bus'
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(VueI18n)

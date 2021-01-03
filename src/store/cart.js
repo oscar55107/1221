@@ -17,6 +17,7 @@ export default ({
     getCart (context) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
       axios.get(api).then(response => {
+        console.log(response)
         context.commit('PRODUCTS', response.data.data)
       })
     },
