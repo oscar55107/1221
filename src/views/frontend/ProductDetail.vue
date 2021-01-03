@@ -17,7 +17,7 @@
         </div>
         <select name="" class="product__form form-control " v-model="product.num">
           <option :value="num" v-for="num in 5" :key="num">
-            購買 {{ num }}{{ product.unit }}
+            購買 {{ num }} {{ product.unit }}
           </option>
         </select>
         <div class="d-flex justify-content-end align-items-end">
@@ -87,7 +87,8 @@ export default {
             spaceBetween: 20
           }
         }
-      }
+      },
+      cartData: []
     }
   },
   methods: {
@@ -104,14 +105,14 @@ export default {
     getCart () {
       this.cartData = JSON.parse(localStorage.getItem('cartData')) || []
     },
-    addToCart (id, qty = 1, title, price) {
+    addToCart (id, qty, title, price) {
       const vm = this
       const cacheCartId = []
       vm.cartData.forEach(item => cacheCartId.push(item.product_id))
       if (cacheCartId.indexOf(id) === -1) {
         const cartContent = {
           product_id: id,
-          qty: 1,
+          qty: qty,
           title: title,
           price: price
         }

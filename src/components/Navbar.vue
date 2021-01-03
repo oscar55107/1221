@@ -110,7 +110,7 @@ export default {
       this.$router.push('customer_product').catch(() => {})
     },
     toCart () {
-      this.$router.push('cartcheckout')
+      this.$router.push('/cartcheckout')
       $('#cartModal').modal('hide')
     }
   },

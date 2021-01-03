@@ -45,23 +45,6 @@ export default ({
         }
       })
     },
-    updateProductQty (context, { originCartId, originProductId, newQty }) {
-      context.commit('LOADING', true, { root: true })
-      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
-      const newCart = {
-        product_id: originProductId,
-        qty: newQty
-      }
-      axios
-        .all([
-          context.dispatch('removeCartItem', originCartId),
-          axios.post(addAPI, { data: newCart })
-        ])
-        .then(axios.spread(() => {
-          context.dispatch('getCart')
-          context.commit('LOADING', false, { root: true })
-        }))
-    },
     modifyQty (context, { productid, qty, id }) {
       context.commit('LOADING', true, { root: true })
       const newCartApi = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
