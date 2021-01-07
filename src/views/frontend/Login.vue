@@ -48,9 +48,11 @@ export default {
         }
       })
     }
-  },
-  mounted () {
-    document.querySelector('.login').style.height = window.innerHeight + 'px'
   }
 }
 </script>
+<style lang="scss" scoped>
+  .login{
+    min-height: calc(100vh - 114px);
+  }
+</style>

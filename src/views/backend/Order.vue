@@ -55,7 +55,6 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`
       vm.$store.dispatch('updateLoading', true)
       vm.$http.get(api).then(response => {
-        console.log(response)
         vm.$store.dispatch('updateLoading', false)
         vm.orders = response.data.orders
         vm.pagination = response.data.pagination

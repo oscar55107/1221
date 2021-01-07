@@ -29,7 +29,7 @@
             <div class="dropdown">
               <button class="btn" to="/cart" data-toggle="modal" data-target="#cartModal">
                 <i class="trash fas fa-shopping-cart">
-                    <div class="trash__text" v-if="cartData.length">{{ cartData.length }}</div>
+                  <div class="trash__text" v-if="cartData.length">{{ cartData.length }}</div>
                 </i>
               </button>
             </div>

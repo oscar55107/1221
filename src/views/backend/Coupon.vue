@@ -39,10 +39,10 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-primary text-white">
             <h5 class="modal-title" id="exampleModalLabel">
-            <span >新增優惠券</span>
+              <span >新增優惠券</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -70,8 +70,8 @@
             </div>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-sm btn-primary" @click="updateCoupon">確認</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-sm btn-primary" @click="updateCoupon">確認</button>
           </div>
         </div>
       </div>
@@ -81,20 +81,20 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">
-              <h5 class="modal-title" id="exampleModalLabel">
+            <h5 class="modal-title" id="exampleModalLabel">
               <span>Delete Coupon</span>
-              </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-              </button>
+            </button>
           </div>
           <div class="modal-body">
-              Want To Delete
-              <strong class="text-danger">{{ tempCoupon.title }}</strong> Coupon？
+            Want To Delete
+            <strong class="text-danger">{{ tempCoupon.title }}</strong> Coupon？
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancle</button>
-              <button type="button" class="btn btn-danger" @click="deleteCoupon">Delete</button>
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancle</button>
+            <button type="button" class="btn btn-danger" @click="deleteCoupon">Delete</button>
           </div>
         </div>
       </div>

@@ -14,22 +14,22 @@
       </div>
     </header>
     <section class="py-7 section__slogon">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-5 noGutter__col d-flex flex-column justify-content-center text-center">
-              <div data-aos="fade-right" class="px-7">
-                <h3 class="mb-3 intro__title">露營 X 美學 X 機能</h3>
-                <p class="intro__text">生活於城市的繁忙喧囂中</p>
-                <p class="intro__text">露營能讓你放慢步調</p>
-                <p class="intro__text">沉浸在森林裡的芬多精</p>
-              </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 noGutter__col d-flex flex-column justify-content-center text-center">
+            <div data-aos="fade-right" class="px-7">
+              <h3 class="mb-3 intro__title">露營 X 美學 X 機能</h3>
+              <p class="intro__text">生活於城市的繁忙喧囂中</p>
+              <p class="intro__text">露營能讓你放慢步調</p>
+              <p class="intro__text">沉浸在森林裡的芬多精</p>
             </div>
-            <div class="col-md-7 noGutter__col">
-              <div data-aos="fade-up" class="section__intro">
-              </div>
+          </div>
+          <div class="col-md-7 noGutter__col">
+            <div data-aos="fade-up" class="section__intro">
             </div>
           </div>
         </div>
+      </div>
     </section>
     <section class="py-7 section__bg">
       <div class="container-fluid">
@@ -47,7 +47,7 @@
                 <p>無論海拔高低，能帶給你溫暖的另一個家</p><br>
               </div>
               <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm" @click="toCproduct">立即選購</button>
+                <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm" @click="toCproduct">立即選購</button>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
                 <p>符合人體工學 ， 完美包覆你的脊椎</p><br>
               </div>
               <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm mb-2" @click="toCproduct">立即選購</button>
+                <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm mb-2" @click="toCproduct">立即選購</button>
               </div>
             </div>
           </div>
