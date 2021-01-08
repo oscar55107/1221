@@ -108,7 +108,6 @@ export default {
   },
   methods: {
     createOrder () {
-      console.log('1')
       const vm = this
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`
       const order = vm.form

@@ -34,8 +34,8 @@
 </template>
 
 <style scoped>
-.router-link-active{
-  background: #37523d;
-  color: #fff;
-}
+  .router-link-active{
+    background: #37523d;
+    color: #fff;
+  }
 </style>
