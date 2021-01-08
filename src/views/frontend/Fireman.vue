@@ -84,7 +84,7 @@
       <div class="container">
         <h2 class="text-center text-primary py-4 hot__title">商品專區</h2>
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6 col-12">
             <div class="hot__grill hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
@@ -93,7 +93,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6 col-12">
             <div class="hot__tool hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
@@ -111,7 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-6">
+          <div class="col-lg-4 col-md-6 col-12">
             <div class="hot__pot hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
@@ -120,7 +120,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-6">
+          <div class="col-lg-4 col-md-6">
             <div class="hot__light hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
