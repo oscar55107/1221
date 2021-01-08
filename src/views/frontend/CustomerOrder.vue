@@ -83,11 +83,13 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Alert from '@/components/AlertMessage.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'CustomerOrder',
@@ -126,7 +128,8 @@ export default {
     }
   },
   components: {
-    Alert
+    Alert,
+    Footer
   }
 }
 </script>

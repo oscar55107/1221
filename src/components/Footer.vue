@@ -1,9 +1,9 @@
 <template>
   <div>
-    <footer class="footer">
-      <div class="container d-flex justify-content-around">
-        <div class="d-flex flex-column text-center pb-3">
-          <small class="pt-3">台中市西屯區123路123號</small>
+    <footer class="footer d-flex justify-content-center align-items-center py-4">
+      <div class="container">
+        <div class="d-flex flex-column text-center">
+          <small>台中市西屯區123路123號</small>
           <small>連絡電話: <a href="tel:+886-2-1234567">1234567</a></small>
           <small>Email: <a href="mailto:abcd1234@gmail.com">abcd1234@gmail.com</a></small>
           <div class="footer__media">

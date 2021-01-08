@@ -96,11 +96,13 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Alert from '@/components/AlertMessage.vue'
+import Footer from '@/components/Footer.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -174,7 +176,8 @@ export default {
     ...mapActions('cartModule', ['removeCartItem'])
   },
   components: {
-    Alert
+    Alert,
+    Footer
   },
   computed: {
     cart () {

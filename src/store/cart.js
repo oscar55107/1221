@@ -17,6 +17,7 @@ export default ({
     getCart (context) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
       axios.get(api).then(response => {
+        console.log(response.data.data)
         context.commit('PRODUCTS', response.data.data)
       })
     },
@@ -26,20 +27,6 @@ export default ({
       axios.delete(api).then(response => {
         if (response.data.success) {
           context.dispatch('getCart')
-          context.commit('LOADING', false, { root: true })
-        }
-      })
-    },
-    addToCart (context, { id, qty }) {
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
-      context.commit('LOADING', true, { root: true })
-      const cart = {
-        product_id: id,
-        qty
-      }
-      axios.post(api, { data: cart }).then(response => {
-        if (response.data.success) {
-          context.dispatch('getCart', id)
           context.commit('LOADING', false, { root: true })
         }
       })

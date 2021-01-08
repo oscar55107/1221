@@ -3,7 +3,7 @@
   max-width: 330px;
   padding: 15px;
   margin: auto;
-  background:rgba(201, 201, 201, 0.5);
+  background:rgba(148, 148, 148, 0.712);
   border-radius:20px;
   @include mobile{
     width: 80%;
@@ -31,10 +31,11 @@
 }
 
 .login{
-  @include banner('../src/assets/images/login.jpg',600px);
-  display:flex;
-  flex-direction:row;
+  background-image: url(../src/assets/images/login.jpg);
+  background-size: cover;
+  background-position: center center;
   align-items:center;
+  padding-top: 81px;
 }
 
 .sigin{

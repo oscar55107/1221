@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="login">
+    <div class="login d-flex justify-content-center align-content-center">
       <form class="form-signin" @submit.prevent="signin">
         <h1 class="h3 mb-3 font-weight-normal text-w">登入</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -48,9 +48,9 @@ export default {
         }
       })
     }
+  },
+  mounted () {
+    document.querySelector('.login').style.height = window.innerHeight + 'px'
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

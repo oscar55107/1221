@@ -57,10 +57,12 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'CartCheckout',
@@ -71,14 +73,14 @@ export default {
     }
   },
   methods: {
-    getCart () {
+    getLocalCart () {
       this.cartData = JSON.parse(localStorage.getItem('cartData')) || []
     },
     remove (item) {
       const index = this.cartData.indexOf(item)
       this.cartData.splice(index, 1)
       localStorage.setItem('cartData', JSON.stringify(this.cartData))
-      this.getCart()
+      this.getLocalCart()
       this.$bus.$emit('cart:get')
     },
     postCart () {
@@ -88,7 +90,6 @@ export default {
           vm.cacheData = res.data.data.carts
         }).then(() => {
           vm.cacheData.forEach((item) => {
-            console.log(item)
             this.axios.delete(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${item.id}`).then(() => {
             })
           })
@@ -102,8 +103,9 @@ export default {
               .then(() => {
                 this.cartData = []
                 localStorage.removeItem('cartData')
-                this.getCart()
+                this.getLocalCart()
                 this.$bus.$emit('cart:get')
+                this.$store.dispatch('cartModule/getCart')
                 this.$router.push('cart').catch(() => {})
               })
           })
@@ -113,8 +115,11 @@ export default {
       this.$router.push('customer_product')
     }
   },
+  components: {
+    Footer
+  },
   created () {
-    this.getCart()
+    this.getLocalCart()
   }
 }
 </script>

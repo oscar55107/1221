@@ -132,11 +132,13 @@
         </div>
       </div>
     </section>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Fireman',
@@ -150,6 +152,9 @@ export default {
         scrollTop: bodyHeight
       }, 6000)
     }
+  },
+  components: {
+    Footer
   }
 }
 </script>

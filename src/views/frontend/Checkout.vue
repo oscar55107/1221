@@ -26,10 +26,13 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+
 export default {
   name: 'Checkout',
   data () {
@@ -43,6 +46,9 @@ export default {
     toProduct () {
       this.$router.push('/customer_product')
     }
+  },
+  components: {
+    Footer
   }
 }
 </script>

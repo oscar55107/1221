@@ -95,10 +95,13 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+
 export default {
   name: 'CustomerCheckout',
   data () {
@@ -133,6 +136,9 @@ export default {
     toCheckout () {
       this.$router.push('/checkout')
     }
+  },
+  components: {
+    Footer
   },
   created () {
     this.orderId = this.$route.params.orderId

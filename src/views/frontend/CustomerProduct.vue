@@ -109,11 +109,13 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Pagination from '@/components/Pagination.vue'
+import Footer from '@/components/Footer.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -214,7 +216,8 @@ export default {
     }
   },
   components: {
-    Pagination
+    Pagination,
+    Footer
   },
   computed: {
     filterData () {

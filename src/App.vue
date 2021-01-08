@@ -3,7 +3,7 @@
     <div id='fb-root'></div>
     <loading :active.sync="isLoading">
     </loading>
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
