@@ -187,3 +187,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .h5{
+    margin: 0 !important;
+  }
+  td,th{
+    white-space:nowrap;
+  }
+  .form-control{
+    min-width: 50px;
+  }
+</style>

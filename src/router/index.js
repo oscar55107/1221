@@ -10,7 +10,7 @@ const routes = [
     component: () => import('@/components/Index.vue'),
     children: [
       {
-        path: 'fireman',
+        path: '',
         name: 'Fireman',
         component: () => import('@/views/frontend/Fireman.vue')
       },
@@ -63,11 +63,10 @@ const routes = [
   },
   {
     path: '/admin',
-    name: 'Dashboard',
     component: () => import('@/components/backend/Dashboard.vue'),
     children: [
       {
-        path: 'products',
+        path: '',
         name: 'Products',
         component: () => import('@/views/backend/Products.vue'),
         meta: { requiresAuth: true }

@@ -92,8 +92,8 @@
                     <div class="h5 text-danger" v-if="item.price">{{ item.price | currency }}</div>
                   </div>
                 </div>
-                <div class="card-footer d-flex">
-                  <button type="button" id="addBtn" v-preventReClick class="btn btn-block btn-primary mt-3" @click='addToCart(item)'>
+                <div class="card-footer">
+                  <button type="button" id="addBtn" v-preventReClick class="btn btn-block btn-primary my-2" @click='addToCart(item)'>
                     <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
                     加入購物車
                   </button>

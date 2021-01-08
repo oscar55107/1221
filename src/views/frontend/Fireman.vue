@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="header__btn" @click="godown">
-          <a><span></span></a>
+          <a href="#"><span></span></a>
         </div>
       </div>
     </header>
@@ -19,8 +19,11 @@
           <div class="col-md-5 noGutter__col d-flex flex-column justify-content-center text-center">
             <div data-aos="fade-right" class="px-7">
               <h3 class="mb-3 intro__title">露營 X 美學 X 機能</h3>
-              <p class="intro__text">生活於城市的繁忙喧囂中</p>
-              <p class="intro__text">露營能讓你放慢步調</p>
+              <p class="intro__text">
+                生活於城市的繁忙喧囂中<br>
+                露營能讓你放慢步調<br>
+                露營能讓你放慢步調
+              </p>
               <p class="intro__text">沉浸在森林裡的芬多精</p>
             </div>
           </div>
@@ -81,8 +84,8 @@
       <div class="container">
         <h2 class="text-center text-primary py-4 hot__title">商品專區</h2>
         <div class="row">
-          <div class="col-sm-6">
-            <div class="hot__grill hot__item">
+          <div class="col-6">
+            <div class="hot__grill hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
                   <router-link class="text-white" to="/customer_product">烤具</router-link>
@@ -90,8 +93,8 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="hot__tool hot__item">
+          <div class="col-6">
+            <div class="hot__tool hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
                   <router-link class="text-white" to="/customer_product">工具</router-link>
@@ -99,8 +102,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-12">
-            <div class="hot__bag hot__item">
+          <div class="col-lg-4 col-12">
+            <div class="hot__bag hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
                   <router-link class="text-white" to="/customer_product">機能背包</router-link>
@@ -108,8 +111,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hot__pot hot__item">
+          <div class="col-lg-4 col-6">
+            <div class="hot__pot hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
                   <router-link class="text-white" to="/customer_product">廚具</router-link>
@@ -117,8 +120,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hot__light hot__item">
+          <div class="col-lg-4 col-6">
+            <div class="hot__light hot__item" @click="toCproduct">
               <div class="hot__text">
                 <button type="button" class="btn more">
                   <router-link class="text-white" to="/customer_product">手電筒</router-link>

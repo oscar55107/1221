@@ -11,8 +11,8 @@
               <i class="fas fa-truck fa-5x text-secondary mt-6 mb-4 car"></i>
               <h3 class="text-primary mb-4">恭喜您，已成功付款囉!</h3>
               <h6 class="mb-6">感謝您對 <span>Fireman</span> 的信任，商品將會在 3~5天到府，請耐心等候。</h6>
-              <div class="btn btn-outline-primary btn-md w-50 mb-4" @click="toFireman">回首頁</div>
-              <div class="btn btn-primary btn-md w-50" @click="toProduct">繼續購物</div>
+              <button class="btn btn-outline-primary btn-md w-50 mb-4" @click="toFireman">回首頁</button>
+              <button class="btn btn-primary btn-md w-50" @click="toProduct">繼續購物</button>
             </div>
             <div class="card-footer d-flex flex-column align-items-center">
               <h4 class="mb-4">退換貨說明</h4>

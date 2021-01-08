@@ -39,7 +39,7 @@ export default {
           const token = response.data.token
           const expired = response.data.expired
           document.cookie = `campToken= ${token}; expires= ${new Date(expired)};`
-          vm.$router.push('/admin/products')
+          vm.$router.push('/admin')
         } else {
           $('.form-signin').addClass('animate__animated animate__shakeX')
           $('.form-signin').on('animationend', function () {
@@ -51,8 +51,6 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
-  .login{
-    min-height: calc(100vh - 114px);
-  }
 </style>

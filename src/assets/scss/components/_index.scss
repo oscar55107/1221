@@ -151,7 +151,10 @@
       font-size: 14px;
     }
     @include mobile{
-      br{content:"";display:none}
+      br{
+        content:"";
+        display:none
+      }
       font-size: 12px;
     }
   }
@@ -261,3 +264,12 @@
 .footer{
   background-color: #bebebe;
 }
+a[href^="tel:"] {
+  text-decoration: none;
+  color: #37523d ;
+}
+a[href^="mailto:"] {
+  text-decoration: none;
+  color: #37523d ;
+}
+  

@@ -54,7 +54,10 @@
   opacity:0.8;
   height: 100%;
   line-height: 100%;
-  bottom:-180px;
+  bottom:-300px;
+  @include mobile{
+    display: none !important;
+  }
 }
 
 .box:hover .title {

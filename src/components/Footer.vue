@@ -1,18 +1,19 @@
 <template>
-<div>
-  <footer class="footer">
-    <div class="container d-flex justify-content-around">
-      <div class="d-flex flex-column text-center pb-3">
-        <small class="pt-3">台中市西屯區123路123號</small>
-        <small>012345678 | abcd1234@gmail.com</small>
+  <div>
+    <footer class="footer">
+      <div class="container d-flex justify-content-around">
+        <div class="d-flex flex-column text-center pb-3">
+          <small class="pt-3">台中市西屯區123路123號</small>
+          <small>連絡電話: <a href="tel:+886-2-1234567">1234567</a></small>
+          <small>Email: <a href="mailto:abcd1234@gmail.com">abcd1234@gmail.com</a></small>
           <div class="footer__media">
             <i class="fab fa-twitter-square mr-2"></i>
             <i class="fab fa-facebook-square mr-2"></i>
             <i class="fab fa-github"></i>
           </div>
-        <small class="mt-2">Copyright 2020  | Web Designed by 皮傑先生</small>
+          <small class="mt-2">Copyright 2020  | Web Designed by 皮傑先生</small>
+        </div>
       </div>
-    </div>
-  </footer>
-</div>
+    </footer>
+  </div>
 </template>

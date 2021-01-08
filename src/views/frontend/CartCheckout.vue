@@ -4,7 +4,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-10">
           <div class="card">
-            <div class="card-header bg-third">
+            <div class="card-header bg-third d-flex align-items-center justify-content-center">
               <h4 class="h5 text-primary text-center text-bold">購買清單確認</h4>
             </div>
             <div class="card-body">
@@ -12,8 +12,8 @@
                 <thead>
                   <th width="40%">名稱</th>
                   <th width="20%">數量</th>
-                  <th>價格</th>
-                  <th>刪除</th>
+                  <th width="30">價格</th>
+                  <th width="30">刪除</th>
                 </thead>
                 <tbody>
                   <tr v-for="item in cartData" :key="item.id">
@@ -37,8 +37,8 @@
                 <button type="button" class="btn btn-outline-primary btn-md mt-3" @click='toProduct'>前往購買</button>
               </div>
             </div>
-            <div class="card-footer d-flex flex-column align-items-center">
-              <h4 class="mb-4">訂購須知</h4>
+            <div class="card-footer py-5 d-flex flex-column justify-content-center align-items-center">
+              <h4>訂購須知</h4>
               <p>
                 ※ 請確認所填寫的資料是否正確，下單後未提供修改付款方式服務。<br>
                 ※ 因拍攝略有色差，圖片僅供參考，顏色請以實際收到商品為準。<br>
@@ -46,7 +46,7 @@
                 ※ 目前支援貨到付款、超商付款。<br>
                 ※ 本店商品為統一會於付款後7個工作日內出貨(不含假日)。
               </p>
-              <h4 class="mb-4">退換貨說明</h4>
+              <h4>退換貨說明</h4>
               <p>
                 ※請直接撥打04-12345678，或到粉絲團詢問相關事宜，會有專人直接為您服務。<br>
                 ※須於訂單商品送達後14日內申請<br>
@@ -66,7 +66,8 @@ export default {
   name: 'CartCheckout',
   data () {
     return {
-      cartData: []
+      cartData: [],
+      cacheData: []
     }
   },
   methods: {
@@ -81,25 +82,23 @@ export default {
       this.$bus.$emit('cart:get')
     },
     postCart () {
-      const cacheID = []
-      this.axios.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`)
+      const vm = this
+      vm.axios.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`)
         .then((res) => {
-          const cacheData = res.data.data.carts
-          cacheData.forEach((item) => {
-            cacheID.push(item.id)
-          })
+          vm.cacheData = res.data.data.carts
         }).then(() => {
-          cacheID.forEach((item) => {
-            this.axios.delete(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${item}`).then(() => {
+          vm.cacheData.forEach((item) => {
+            console.log(item)
+            this.axios.delete(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${item.id}`).then(() => {
             })
           })
         }).then(() => {
-          this.cartData.forEach((item) => {
+          vm.cartData.forEach((item) => {
             const cache = {
               product_id: item.product_id,
               qty: item.qty
             }
-            this.axios.post(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`, { data: cache })
+            vm.axios.post(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`, { data: cache })
               .then(() => {
                 this.cartData = []
                 localStorage.removeItem('cartData')
@@ -119,3 +118,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .h5{
+    margin: 0 !important;
+  }
+  h4 , p{
+    margin: 0 !important;
+  }
+  td{
+    white-space:nowrap;
+  }
+</style>
