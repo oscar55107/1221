@@ -119,7 +119,7 @@ export default {
   },
   mounted () {
     $(function () {
-      if ($(window).width() < 800) {
+      if ($(window).width() < 991) {
         $('.navbar .nav-item').on('click', () => {
           $('.navbar-toggler').click()
         })

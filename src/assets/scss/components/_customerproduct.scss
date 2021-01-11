@@ -29,7 +29,16 @@
 .list{
   &__title{
     border-bottom: 5px solid $primary;
-    width: 25%;
+    width: 28%;
+    @include pad{
+      width: 10%;
+    }
+    @include mobile{
+      width: 15%;
+    }
+    @include iphone6s{
+      width: 20%;
+    }
   }
 }
 
