@@ -98,3 +98,7 @@
   font-family: 'Carter One',cursive;
   font-size: 18px;
 }
+a[href^="tel:"] {
+  text-decoration: none;
+  color: #37523d ;
+}

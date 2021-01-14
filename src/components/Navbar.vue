@@ -92,7 +92,8 @@ export default {
   props: ['len'],
   data () {
     return {
-      cartData: []
+      cartData: [],
+      screenWidth: $(window).width()
     }
   },
   methods: {
@@ -118,13 +119,14 @@ export default {
     this.$bus.$on('cart:get', () => this.getCart())
   },
   mounted () {
-    $(function () {
-      if ($(window).width() < 991) {
+    window.onresize = () => {
+      this.screenWidth = window.innerWidth
+      if (this.screenWidth < 991) {
         $('.navbar .nav-item').on('click', () => {
           $('.navbar-toggler').click()
         })
       }
-    })
+    }
   }
 }
 </script>

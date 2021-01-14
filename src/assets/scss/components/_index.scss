@@ -71,6 +71,9 @@
     }
     &:hover{
       cursor: pointer;
+      @include mobile{
+        cursor: none;
+      }
     }
   }
 }
@@ -147,14 +150,11 @@
     }
   }
   &__text{
+    line-height: 4;
     @include pad{
       font-size: 14px;
     }
     @include mobile{
-      br{
-        content:"";
-        display:none
-      }
       font-size: 12px;
     }
   }
@@ -174,6 +174,7 @@
     }
   }
   &__text{
+    line-height: 4;
     @include pad{
       font-size: 14px;
     }
@@ -227,6 +228,9 @@
 
 .hot__item:hover{
   cursor: pointer;
+  @include mobile{
+    cursor: none;
+  }
 }
 
 .hot__item:hover .hot__text{
@@ -241,6 +245,9 @@
   font-weight: bold;
   padding: 15px;
   border: 2px solid #fff;
+  @include mobile{
+    display: none;
+  }
   &:hover{
     background-color: rgb(68, 68, 68);
     opacity: 1;

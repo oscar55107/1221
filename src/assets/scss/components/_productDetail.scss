@@ -1,5 +1,8 @@
 .product__card:hover{
   cursor: pointer;
+  @include mobile{
+    cursor: none;
+  }
 }
 
 .card__img{
@@ -10,6 +13,9 @@
   transition: all 1s ease-out;
   &:hover{
     transform:scale(1.2,1.2);
+    @include mobile{
+      transform:scale(1,1);
+    }
   }
 }
 

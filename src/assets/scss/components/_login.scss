@@ -43,6 +43,9 @@
 }
 
 .sigin:hover{
-  background:rgba(0, 0, 0, 0.5)
+  background:rgba(0, 0, 0, 0.5);
+  @include mobile{
+    background:rgba(34, 34, 34, 0.5)
+  }
 }
 

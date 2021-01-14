@@ -22,9 +22,8 @@
               <p class="intro__text">
                 生活於城市的繁忙喧囂中<br>
                 露營能讓你放慢步調<br>
-                露營能讓你放慢步調
+                沉浸在森林裡的芬多精
               </p>
-              <p class="intro__text">沉浸在森林裡的芬多精</p>
             </div>
           </div>
           <div class="col-md-7 noGutter__col">
@@ -43,12 +42,11 @@
           <div class="col-md-6 d-flex flex-column justify-content-center text-center px-7">
             <div>
               <h2 class="mb-3 section__title pt-2">帳篷</h2>
-              <div class="section__text">
-                <p>還在煩惱找不到人露營嗎</p><br>
-                <p>還是你尚未踏入露營之旅</p><br>
-                <p>Fireman 提供單人 與 多人帳篷</p><br>
-                <p>無論海拔高低，能帶給你溫暖的另一個家</p><br>
-              </div>
+              <p class="section__text">還在煩惱找不到人露營嗎<br>
+                還是你尚未踏入露營之旅<br>
+                Fireman 提供單人 與 多人帳篷<br>
+                無論海拔高低，能帶給你溫暖的另一個家
+              </p>
               <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm" @click="toCproduct">立即選購</button>
               </div>
@@ -64,10 +62,11 @@
             <div>
               <h2 class="mb-3 section__title">戶外椅</h2>
               <div class="section__text">
-                <p>每天坐在辦公椅上</p><br>
-                <p>露營的時候還不讓自己方鬆嗎</p><br>
-                <p>Fireman 提供各種機能戶外椅</p><br>
-                <p>符合人體工學 ， 完美包覆你的脊椎</p><br>
+                <p>每天坐在辦公椅上<br>
+                  露營的時候還不讓自己方鬆嗎<br>
+                  Fireman 提供各種機能戶外椅<br>
+                  符合人體工學 ， 完美包覆你的脊椎
+                </p>
               </div>
               <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary w-50 btn-md-md btn-sm mb-2" @click="toCproduct">立即選購</button>

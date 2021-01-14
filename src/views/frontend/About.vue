@@ -21,7 +21,7 @@
                     <span>Fireman</span> 是由 2 位熱愛露營的台灣人所創立<br>
                     除了提供美學兼機能性的各種露營用品<br>
                     更提供 相關露營知識 & 露營車租賃<br>
-                    讓野營與車露能夠享受與安全<br>
+                    讓野營與車露能夠享受與安全
                   </p>
                 </div>
               </div>
@@ -43,7 +43,7 @@
                   <p>
                     <span>Fireman</span> 秉持著專業、品質的理念<br>
                     來服務每位即將踏上露營之旅的旅客<br>
-                    猶如 Fireman 的 Fire ， 永不熄滅<br>
+                    猶如 Fireman 的 Fire ， 永不熄滅
                   </p>
                 </div>
               </div>
@@ -73,7 +73,7 @@
               <div class="brand__time d-flex flex-column align-items-center p-5" >
                 <h4>Fireman</h4>
                 <h6>
-                  <span>連絡電話 : 04-12345678</span>
+                  <span>連絡電話 : <a href="tel:+886-2-1234567">1234567</a></span>
                 </h6>
                 <h6>
                   <span>營業時間 : 9:00 - 20:00</span>

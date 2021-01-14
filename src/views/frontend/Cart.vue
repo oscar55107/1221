@@ -70,7 +70,7 @@
                       </button>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-primary btn-block px-3" v-if ="cart.carts.length" @click="toOrder">結帳</button>
+                  <button type="button" class="btn btn-primary btn-block px-3" v-if="cart.carts.length" @click="toOrder">結帳</button>
                 </div>
               </div>
             </div>
